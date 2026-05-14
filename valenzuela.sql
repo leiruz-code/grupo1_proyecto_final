@@ -24,6 +24,6 @@ CREATE TABLE infraccion (
     gravedad VARCHAR(30) NOT NULL,
     descripcion TEXT NOT NULL,
     penalizacion VARCHAR(100) NOT NULL,
-    pnlzcon_ecnmca NUMERIC(10, 2), -- N significa que permite nulos
+    pnlzcon_ecnmca NUMERIC(10, 2),
     CONSTRAINT pk_infraccion PRIMARY KEY (id_infrccon)
 );
