@@ -62,15 +62,16 @@ CREATE TABLE presentacion (
 );
 
 CREATE TABLE inventario (
-    id_producto INT,
+    id_invntro SERIAL,
     cantidad INT NOT NULL,
     observacion TEXT,
 
     id_lote INT UNIQUE NOT NULL,
+    id_producto INT NOT NULL,
     id_prsntcon INT NOT NULL,
 
-    CONSTRAINT pk_producto
-      PRIMARY KEY (id_producto),
+    CONSTRAINT pk_invntro
+      PRIMARY KEY (id_invntro),
   
     CONSTRAINT fk_producto
       FOREIGN KEY (id_producto)
