@@ -66,12 +66,14 @@ CREATE TABLE colaborador (
       FOREIGN KEY (id_contrato)
       REFERENCES contrato(id_contrato)
 );
-
-CREATE TABLE producto (
-    id_prdcto SERIAL,
-    nmbre_prdcto VARCHAR(150) NOT NULL,
-    descripcion TEXT,
-    id_catgra INTEGER NOT NULL,
-    CONSTRAINT pk_producto PRIMARY KEY (id_prdcto),
-    CONSTRAINT fk_producto_categoria FOREIGN KEY (id_catgra) REFERENCES categoria(id_catgra)
+CREATE TABLE prdcto_prmcon (
+    id_prdcto_prmcon SERIAL,
+    id_prdcto INTEGER NOT NULL,
+    id_lote INTEGER NOT NULL,
+    id_prmcon INTEGER NOT NULL,
+    CONSTRAINT pk_prdcto_prmcon PRIMARY KEY (id_prdcto_prmcon),
+    CONSTRAINT fk_prmcon_producto FOREIGN KEY (id_prdcto) REFERENCES producto(id_prdcto),
+    CONSTRAINT fk_prmcon_lote FOREIGN KEY (id_lote) REFERENCES lote(id_lote),
+    CONSTRAINT fk_prmcon_promocion FOREIGN KEY (id_prmcon) REFERENCES promocion(id_prmcon)
 );
+
