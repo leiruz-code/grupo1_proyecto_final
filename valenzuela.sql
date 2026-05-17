@@ -37,3 +37,15 @@ CREATE TABLE dtlle_pddo (
     CONSTRAINT fk_dtlle_pddo_pedido FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido),
     CONSTRAINT fk_dtlle_pddo_producto FOREIGN KEY (id_prdcto) REFERENCES producto(id_prdcto)
 );
+
+CREATE TABLE dtlle_mrma (
+    id_dtlle_mrma SERIAL,
+    cantidad INTEGER NOT NULL,
+    id_prdcto INTEGER NOT NULL,
+    id_merma INTEGER NOT NULL,
+    id_lote INTEGER NOT NULL,
+    CONSTRAINT pk_dtlle_mrma PRIMARY KEY (id_dtlle_mrma),
+    CONSTRAINT fk_dtlle_mrma_producto FOREIGN KEY (id_prdcto) REFERENCES producto(id_prdcto),
+    CONSTRAINT fk_dtlle_mrma_merma FOREIGN KEY (id_merma) REFERENCES merma(id_merma),
+    CONSTRAINT fk_dtlle_mrma_lote FOREIGN KEY (id_lote) REFERENCES lote(id_lote)
+);
