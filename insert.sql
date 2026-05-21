@@ -57,3 +57,25 @@ VALUES
 	('Remate', '2026-05-29', '2026-05-31', 50.00, 2, '50% de descuento en productos seleccionados.'),
 	('Descuento 3x2', '2026-05-28', '2026-06-30', 100.00, 2, '100% de descuento en el 3er producto y en ciertos productos seleccionados.')
 RETURNING id_prmcon;
+
+-- Jose
+INSERT INTO categoria (nmbre_ctgra, mnmo_edd) 
+VALUES
+	('Bebidas', 0),
+	('Snacks', 0),
+	('Lácteos', 0),
+	('Productos de Limpieza', 18),
+	('Cuidado Personal', 12),
+	('Panadería', 0)
+RETURNING id_ctgra;
+
+INSERT INTO proveedor (nmbre_prvdor, crro_elctrnco, telefono, direccion) 
+VALUES
+	('Distribuidora Andina', 'contacto@andina.com', '987654321', 'Av. Principal 123'),
+	('Comercial Lima', 'ventas@comlima.com', '912345678', 'Jr. Los Olivos 456'),
+	('Abarrotes del Sur', 'info@abarrotessur.com', '934567812', 'Calle Comercio 789'),
+	('Proveedores Unidos', 'soporte@provunidos.com', '956781234', 'Av. Industrial 321'),
+	('Mercantil Express', 'pedidos@mercantilx.com', '978123456', 'Jr. Central 654'),
+	('Distribuciones Nova', 'admin@nova.com', '991234567', 'Calle Las Flores 987');
+RETURNING id_proveedor;
+
