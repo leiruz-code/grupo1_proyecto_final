@@ -1,4 +1,4 @@
--- Datos insertados --
+-- Datos insertados tabla Lugar --
 INSERT INTO lugar (distrito, provincia, region) VALUES
 ('Miraflores', 'Lima', 'Lima'),
 ('Santiago de Surco', 'Lima', 'Lima'),
@@ -10,6 +10,7 @@ INSERT INTO lugar (distrito, provincia, region) VALUES
 ('Huancayo', 'Huancayo', 'Junín')
   RETURNING id_lugar;
 
+-- Datos insertados tabla Turno --
 INSERT INTO turno (nmbre_trno, hora_inicio, hora_fin) VALUES
 ('Mañana', '06:00:00', '14:00:00'),
 ('Tarde', '14:00:00', '22:00:00'),
