@@ -40,10 +40,13 @@ INSERT INTO infraccion (tpo_infrccon, gravedad, descripcion, penalizacion, pnlzc
 ('Subcontratación', 'Grave', 'Subcontratar los servicios del objeto del contrato con terceros sin el consentimiento previo.', 'Clasificación de proveedor no elegible y multa', 3500.00) RETURNING id_infrccon;
 
 -- Zuriel
-INSERT INTO cliente (nombres, aplldo_ptrno, aplldo_mtrno, fcha_rgstro, nmro_pddos, teléfono, crro_elctrnco) VALUES
+INSERT INTO cliente (nombres, aplldo_ptrno, aplldo_mtrno, fcha_rgstro, nmro_pddos, teléfono, crro_elctrnco)
+VALUES
 	('Pepe', 'Quispe', 'Hurtado', '21-05-2026', 3, 951753654, 'pepe_quispe@hotmail.com'),
 	('Felipe', 'Huaroc', 'Lopez', '20-02-2026', 7, 987456321, 'felipe_huaroc@gmail.com'),
-	('Fernando', 'Olivera', 'Gomez', '24-04-2026', 4, 963842751, 'fernando_olivera@hotmail.com')
+	('Fernando', 'Olivera', 'Gomez', '24-04-2026', 4, 963842751, 'fernando_olivera@hotmail.com'),
+	('Cielo', 'Guerra', 'Garcia', '19-02-2025', 1, 953285645, 'cielo_guerra@gmail.com'),
+	('Manuel', 'Medrano', 'Padilla', '14-01-2026', 9, 954685312, 'manuel_medrano@gmail.com')
 RETURNING id_cliente;
 
 INSERT INTO promoción (nmbre_promocon, fecha_inicio, fecha_fin, descuento, cntdad_mnma, descripción) VALUES
