@@ -37,3 +37,15 @@ INSERT INTO infraccion (tpo_infrccon, gravedad, descripcion, penalizacion, pnlzc
 ('Confidencialidad', 'Moderada', 'Uso inadecuado de logos o marcas de la empresa sin la autorización expresa del contrato.', 'Suspensión temporal del acceso a las instalaciones', 1500.00),('Ausencia de Servicio', 'Grave', 'Abandono injustificado del servicio o cese de operaciones por más de 24 horas continuas.', 'Rescisión de contrato y ejecución de fianza', 5000.00),
 ('Seguridad', 'Grave', 'Vulneración de datos sensibles por negligencia en el manejo de credenciales compartidas.', 'Auditoría obligatoria externa y penalización máxima', 7500.00),
 ('Subcontratación', 'Grave', 'Subcontratar los servicios del objeto del contrato con terceros sin el consentimiento previo.', 'Clasificación de proveedor no elegible y multa', 3500.00) RETURNING id_infrccon;
+
+-- Zuriel
+INSERT INTO cliente (nombres, aplldo_ptrno, aplldo_mtrno, fcha_rgstro, nmro_pddos, teléfono, crro_elctrnco) VALUES
+	('Pepe', 'Quispe', 'Hurtado', '21-05-2026', 3, 951753654, 'pepe_quispe@hotmail.com'),
+	('Felipe', 'Huaroc', 'Lopez', '20-02-2026', 7, 987456321, 'felipe_huaroc@gmail.com'),
+	('Fernando', 'Olivera', 'Gomez', '24-04-2026', 4, 963842751, 'fernando_olivera@hotmail.com')
+RETURNING id_cliente;
+
+INSERT INTO promoción (nmbre_promocon, fecha_inicio, fecha_fin, descuento, cntdad_mnma, descripción) VALUES
+	('Día de la Madre', '2026-05-01', '2026-05-15', 10.00, 1, '10% de descuento en la sección de chocolates y regalos.'),
+	('Aniversario', '2026-09-01', '2026-09-30', 10.00, 1, '10% de descuento en toda la tienda por nuestro mes de aniversario.')
+RETURNING id_prmcon;
