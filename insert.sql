@@ -49,7 +49,11 @@ VALUES
 	('Manuel', 'Medrano', 'Padilla', '14-01-2026', 9, 954685312, 'manuel_medrano@gmail.com')
 RETURNING id_cliente;
 
-INSERT INTO promoción (nmbre_promocon, fecha_inicio, fecha_fin, descuento, cntdad_mnma, descripción) VALUES
-	('Día de la Madre', '2026-05-01', '2026-05-15', 10.00, 1, '10% de descuento en la sección de chocolates y regalos.'),
-	('Aniversario', '2026-09-01', '2026-09-30', 10.00, 1, '10% de descuento en toda la tienda por nuestro mes de aniversario.')
+INSERT INTO promoción (nmbre_promocon, fecha_inicio, fecha_fin, descuento, cntdad_mnma, descripción)
+VALUES
+	('Día de la Madre', '2026-05-01', '2026-05-15', 20.00, 1, '20% de descuento en la sección de chocolates y regalos.'),
+	('Aniversario', '2026-09-01', '2026-09-30', 10.00, 1, '10% de descuento en toda la tienda por nuestro mes de aniversario.'),
+	('Día del Padre', '2026-06-10', '2026-06-21', 20.00, 1, '20% de descuento en la sección de regalos.'),
+	('Remate', '2026-05-29', '2026-05-31', 50.00, 2, '50% de descuento en productos seleccionados.'),
+	('Descuento 3x2', '2026-05-28', '2026-06-30', 100.00, 2, '100% de descuento en el 3er producto y en ciertos productos seleccionados.')
 RETURNING id_prmcon;
