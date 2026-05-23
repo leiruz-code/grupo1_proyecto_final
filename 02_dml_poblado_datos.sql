@@ -63,22 +63,22 @@ INSERT INTO infraccion (tpo_infrccon, gravedad, descripcion, penalizacion, pnlzc
 -- =========================================
 INSERT INTO cliente (nombres, aplldo_ptrno, aplldo_mtrno, fcha_rgstro, nmro_pddos, teléfono, crro_elctrnco)
 VALUES
-	('Pepe', 'Quispe', 'Hurtado', '21-05-2026', 3, 951753654, 'pepe_quispe@hotmail.com'),
-	('Felipe', 'Huaroc', 'Lopez', '20-02-2026', 7, 987456321, 'felipe_huaroc@gmail.com'),
-	('Fernando', 'Olivera', 'Gomez', '24-04-2026', 4, 963842751, 'fernando_olivera@hotmail.com'),
-	('Cielo', 'Guerra', 'Garcia', '19-02-2025', 1, 953285645, 'cielo_guerra@gmail.com'),
-	('Manuel', 'Medrano', 'Padilla', '14-01-2026', 9, 954685312, 'manuel_medrano@gmail.com')
+	('Pepe', 'Quispe', 'Hurtado', '2026-05-21', 3, 951753654, 'pepe_quispe@hotmail.com'),
+	('Felipe', 'Huaroc', 'Lopez', '2026-02-20', 7, 987456321, 'felipe_huaroc@gmail.com'),
+	('Fernando', 'Olivera', 'Gomez', '2026-04-24', 4, 963842751, 'fernando_olivera@hotmail.com'),
+	('Cielo', 'Guerra', 'Garcia', '2025-02-19', 1, 953285645, 'cielo_guerra@gmail.com'),
+	('Manuel', 'Medrano', 'Padilla', '2026-01-14', 9, 954685312, 'manuel_medrano@gmail.com')
 RETURNING id_cliente;
 
 -- =========================================
 -- TABLA: promocion
 -- AUTOR: Zuriel Cangre
 -- =========================================
-INSERT INTO promoción (nmbre_promocon, fecha_inicio, fecha_fin, descuento, cntdad_mnma, descripción)
+INSERT INTO promocion (nmbre_promocon, fecha_inicio, fecha_fin, descuento, cntdad_mnma, descripcion)
 VALUES
-	('Día de la Madre', '2026-05-01', '2026-05-15', 20.00, 1, '20% de descuento en la sección de chocolates y regalos.'),
+	('Dia de la Madre', '2026-05-01', '2026-05-15', 20.00, 1, '20% de descuento en la seccion de chocolates y regalos.'),
 	('Aniversario', '2026-09-01', '2026-09-30', 10.00, 1, '10% de descuento en toda la tienda por nuestro mes de aniversario.'),
-	('Día del Padre', '2026-06-10', '2026-06-21', 20.00, 1, '20% de descuento en la sección de regalos.'),
+	('Dia del Padre', '2026-06-10', '2026-06-21', 20.00, 1, '20% de descuento en la seccion de regalos.'),
 	('Remate', '2026-05-29', '2026-05-31', 50.00, 2, '50% de descuento en productos seleccionados.'),
 	('Descuento 3x2', '2026-05-28', '2026-06-30', 100.00, 2, '100% de descuento en el 3er producto y en ciertos productos seleccionados.')
 RETURNING id_prmcon;
