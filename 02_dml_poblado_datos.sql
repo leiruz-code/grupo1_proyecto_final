@@ -136,7 +136,10 @@ RETURNING id_proveedor;
 
 
 -- =========================================
--- TABLA: 
+-- TABLA: proveedor
 -- AUTOR: Jose Bernedo
 -- =========================================
-
+UPDATE proveedor
+SET direccion = 'Calle El Comercio 791'
+WHERE nmbre_prvdor = 'Abarrotes del Sur'
+RETURNING *;
