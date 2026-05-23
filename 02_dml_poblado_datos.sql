@@ -1,4 +1,11 @@
--- Datos insertados tabla Lugar --
+-- ======================================================
+-- 						--- INSERT ---
+-- ======================================================
+
+-- =========================================
+-- TABLA: lugar
+-- AUTOR: Brysett Valenzuela
+-- =========================================
 INSERT INTO lugar (distrito, provincia, region) VALUES
 ('Miraflores', 'Lima', 'Lima'),
 ('Santiago de Surco', 'Lima', 'Lima'),
@@ -10,7 +17,10 @@ INSERT INTO lugar (distrito, provincia, region) VALUES
 ('Huancayo', 'Huancayo', 'Junín')
   RETURNING id_lugar;
 
--- Datos insertados tabla Turno --
+-- =========================================
+-- TABLA: turno
+-- AUTOR: Brysett Valenzuela
+-- =========================================
 INSERT INTO turno (nmbre_trno, hora_inicio, hora_fin) VALUES
 ('Mañana', '06:00:00', '14:00:00'),
 ('Tarde', '14:00:00', '22:00:00'),
@@ -19,6 +29,10 @@ INSERT INTO turno (nmbre_trno, hora_inicio, hora_fin) VALUES
 ('Partidario', '09:00:00', '13:00:00')
   RETURNING id_turno;
 
+-- =========================================
+-- TABLA: contrato
+-- AUTOR: Betzabe Huaroc
+-- =========================================
 INSERT INTO contrato (nmbre_contrto) VALUES
 ('Contrato de Prestación de Servicios de TI - Fase 1'),
 ('Contrato de Suministro de Papelería y Útiles de Oficina'),
@@ -29,6 +43,10 @@ INSERT INTO contrato (nmbre_contrto) VALUES
 ('Contrato de Servicio de Limpieza e Higienización'),
 ('Contrato de Transporte y Logística de Distribución') RETURNING id_contrato; 
 
+-- =========================================
+-- TABLA: infraccion
+-- AUTOR: Betzabe Huaroc
+-- =========================================
 INSERT INTO infraccion (tpo_infrccon, gravedad, descripcion, penalizacion, pnlzcon_ecnmca) VALUES
 -- Infracciones Leves
 ('Retraso', 'Leve', 'Entrega de informes fuera del plazo establecido (hasta 48 horas de retraso).', 'Amonestación por escrito', 150.00),
@@ -39,7 +57,10 @@ INSERT INTO infraccion (tpo_infrccon, gravedad, descripcion, penalizacion, pnlzc
 ('Seguridad', 'Grave', 'Vulneración de datos sensibles por negligencia en el manejo de credenciales compartidas.', 'Auditoría obligatoria externa y penalización máxima', 7500.00),
 ('Subcontratación', 'Grave', 'Subcontratar los servicios del objeto del contrato con terceros sin el consentimiento previo.', 'Clasificación de proveedor no elegible y multa', 3500.00) RETURNING id_infrccon;
 
--- Zuriel
+-- =========================================
+-- TABLA: cliente
+-- AUTOR: Zuriel Cangre
+-- =========================================
 INSERT INTO cliente (nombres, aplldo_ptrno, aplldo_mtrno, fcha_rgstro, nmro_pddos, teléfono, crro_elctrnco)
 VALUES
 	('Pepe', 'Quispe', 'Hurtado', '21-05-2026', 3, 951753654, 'pepe_quispe@hotmail.com'),
@@ -49,6 +70,10 @@ VALUES
 	('Manuel', 'Medrano', 'Padilla', '14-01-2026', 9, 954685312, 'manuel_medrano@gmail.com')
 RETURNING id_cliente;
 
+-- =========================================
+-- TABLA: promocion
+-- AUTOR: Zuriel Cangre
+-- =========================================
 INSERT INTO promoción (nmbre_promocon, fecha_inicio, fecha_fin, descuento, cntdad_mnma, descripción)
 VALUES
 	('Día de la Madre', '2026-05-01', '2026-05-15', 20.00, 1, '20% de descuento en la sección de chocolates y regalos.'),
@@ -58,7 +83,10 @@ VALUES
 	('Descuento 3x2', '2026-05-28', '2026-06-30', 100.00, 2, '100% de descuento en el 3er producto y en ciertos productos seleccionados.')
 RETURNING id_prmcon;
 
--- Jose
+-- =========================================
+-- TABLA: categoria
+-- AUTOR: Jose Bernedo
+-- =========================================
 INSERT INTO categoria (nmbre_ctgra, mnmo_edd) 
 VALUES
 	('Bebidas', 0),
@@ -69,6 +97,10 @@ VALUES
 	('Panadería', 0)
 RETURNING id_ctgra;
 
+-- =========================================
+-- TABLA: proveedor
+-- AUTOR: Jose Bernedo
+-- =========================================
 INSERT INTO proveedor (nmbre_prvdor, crro_elctrnco, telefono, direccion) 
 VALUES
 	('Distribuidora Andina', 'contacto@andina.com', '987654321', 'Av. Principal 123'),
@@ -78,4 +110,33 @@ VALUES
 	('Mercantil Express', 'pedidos@mercantilx.com', '978123456', 'Jr. Central 654'),
 	('Distribuciones Nova', 'admin@nova.com', '991234567', 'Calle Las Flores 987');
 RETURNING id_proveedor;
+
+
+
+-- ======================================================
+-- 						--- UPDATE ---
+-- ======================================================
+
+-- =========================================
+-- TABLA: 
+-- AUTOR: Brysett Valenzuela
+-- =========================================
+
+
+-- =========================================
+-- TABLA: 
+-- AUTOR: Betzabe Huaroc
+-- =========================================
+
+
+-- =========================================
+-- TABLA: 
+-- AUTOR: Zuriel Cangre
+-- =========================================
+
+
+-- =========================================
+-- TABLA: 
+-- AUTOR: Jose Bernedo
+-- =========================================
 
