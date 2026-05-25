@@ -118,11 +118,14 @@ RETURNING id_proveedor;
 -- ======================================================
 
 -- =========================================
--- TABLA: 
+-- TABLA: lugar
 -- AUTOR: Brysett Valenzuela
 -- =========================================
-
-
+UPDATE lugar
+SET distrito = 'Cayma',
+    provincia = 'Arequipa'
+WHERE id_lugar = 3
+RETURNING *;
 -- =========================================
 -- TABLA: 
 -- AUTOR: Betzabe Huaroc
