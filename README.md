@@ -780,6 +780,12 @@
   <td align="center"></td>
 </tr>
 
+<tr>
+  <td align="center">`id_jefe`</td>
+  <td align="center">`int4`</td>
+  <td align="center">Nullable</td>
+</tr>
+
 </table>
 
 <br>
