@@ -126,11 +126,17 @@ SET distrito = 'Cayma',
     provincia = 'Arequipa'
 WHERE id_lugar = 3
 RETURNING *;
+
 -- =========================================
 -- TABLA: 
 -- AUTOR: Betzabe Huaroc
 -- =========================================
-
+UPDATE infraccion
+SET
+    gravedad = 'Moderada',
+    pnlzcon_ecnmca = 150
+WHERE id_infraccion = 1
+RETURNING *;
 
 -- =========================================
 -- TABLA: 
