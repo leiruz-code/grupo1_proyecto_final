@@ -26,7 +26,7 @@
   <th align="center">Cantidad Total de Tablas</th>
 </tr>
 <tr>
-  <td align="center">23</td>
+  <td align="center">22</td>
 </tr>
 </table>
 
