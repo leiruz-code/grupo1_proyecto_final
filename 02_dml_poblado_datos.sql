@@ -136,7 +136,11 @@ RETURNING *;
 -- TABLA: 
 -- AUTOR: Zuriel Cangre
 -- =========================================
-
+UPDATE cliente
+SET teléfono = 963842755,
+    crro_elctrnco = 'fernando_olivera_nuevo@hotmail.com'    
+WHERE nombres = 'Fernando' AND aplldo_ptrno = 'Olivera'
+RETURNING *;
 
 -- =========================================
 -- TABLA: proveedor
