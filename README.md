@@ -777,7 +777,7 @@
 <tr>
   <td align="center">`contrato`</td>
   <td align="center">`varchar`</td>
-  <td align="center">Check('Determinado','Indeterminado','Terminado')</td>
+  <td align="center">Check('Det','Ind','Ter')</td>
 </tr>
 
 <tr>
