@@ -113,38 +113,6 @@
 
 <br>
 
-<!-- TABLA CONTRATO -->
-
-<table border="3" cellpadding="10" width="500">
-
-<tr>
-  <th colspan="3" align="center">
-📋 Table: `contrato`
-  </th>
-</tr>
-
-<tr>
-  <th align="center">Name</th>
-  <th align="center">Type</th>
-  <th align="center">Constraints</th>
-</tr>
-
-<tr>
-  <td align="center">`id_contrato`</td>
-  <td align="center">`int4`</td>
-  <td align="center">Primary</td>
-</tr>
-
-<tr>
-  <td align="center">`nmbre_cntrto`</td>
-  <td align="center">`varchar`</td>
-  <td align="center"></td>
-</tr>
-
-</table>
-
-<br>
-
 <!-- TABLA PEDIDO -->
 
 <table border="3" cellpadding="10" width="500">
@@ -393,6 +361,44 @@
 
 <tr>
   <td align="center">`id_ctgra`</td>
+  <td align="center">`int4`</td>
+  <td align="center"></td>
+</tr>
+
+</table>
+
+<br>
+
+<!-- TABLA PRESENTACION -->
+
+<table border="3" cellpadding="10" width="500">
+
+<tr>
+  <th colspan="3" align="center">
+📋 Table: `presentacion`
+  </th>
+</tr>
+
+<tr>
+  <th align="center">Name</th>
+  <th align="center">Type</th>
+  <th align="center">Constraints</th>
+</tr>
+
+<tr>
+  <td align="center">`id_presentacion`</td>
+  <td align="center">`int4`</td>
+  <td align="center">Primary</td>
+</tr>
+
+<tr>
+  <td align="center">`nmbre_prsntcon`</td>
+  <td align="center">`varchar`</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">`peso_gramos`</td>
   <td align="center">`int4`</td>
   <td align="center"></td>
 </tr>
@@ -1240,44 +1246,6 @@
 <tr>
   <td align="center">`direccion`</td>
   <td align="center">`varchar`</td>
-  <td align="center"></td>
-</tr>
-
-</table>
-
-<br>
-
-<!-- TABLA PRESENTACION -->
-
-<table border="3" cellpadding="10" width="500">
-
-<tr>
-  <th colspan="3" align="center">
-📋 Table: `presentacion`
-  </th>
-</tr>
-
-<tr>
-  <th align="center">Name</th>
-  <th align="center">Type</th>
-  <th align="center">Constraints</th>
-</tr>
-
-<tr>
-  <td align="center">`id_presentacion`</td>
-  <td align="center">`int4`</td>
-  <td align="center">Primary</td>
-</tr>
-
-<tr>
-  <td align="center">`nmbre_prsntcon`</td>
-  <td align="center">`varchar`</td>
-  <td align="center"></td>
-</tr>
-
-<tr>
-  <td align="center">`peso_gramos`</td>
-  <td align="center">`int4`</td>
   <td align="center"></td>
 </tr>
 
