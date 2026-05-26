@@ -71,6 +71,24 @@ VALUES
 RETURNING id_cliente;
 
 -- =========================================
+-- TABLA: prdcto_prmcon
+-- AUTOR: Zuriel Cangre
+-- =========================================
+INSERT INTO prdcto_prmcon (id_prdcto, id_lote, id_prmcon)
+VALUES
+	(1, 1, 1), -- Producto 1 (Chocolates) del Lote 1 en Promoción 1 (Día de la Madre)
+	(2, 1, 1), -- Producto 2 (Regalos) del Lote 1 en Promoción 1 (Día de la Madre)
+	(3, 2, 2), -- Producto 3 (Snacks) del Lote 2 en Promoción 2 (Aniversario)
+	(4, 3, 2), -- Producto 4 (Lácteos) del Lote 3 en Promoción 2 (Aniversario)
+	(5, 4, 3), -- Producto 5 (Cuidado Personal) del Lote 4 en Promoción 3 (Día del Padre)
+	(1, 2, 4), -- Producto 1 (Chocolates) del Lote 2 en Promoción 4 (Remate)
+	(3, 2, 4), -- Producto 3 (Snacks) del Lote 2 en Promoción 4 (Remate)
+	(6, 5, 5), -- Producto 6 (Panadería) del Lote 5 en Promoción 5 (Descuento 3x2)
+	(4, 3, 5), -- Producto 4 (Lácteos) del Lote 3 en Promoción 5 (Descuento 3x2)
+	(2, 6, 2)  -- Producto 2 (Regalos) del Lote 6 en Promoción 2 (Aniversario)
+RETURNING id_prdcto_prmcon;
+
+-- =========================================
 -- TABLA: promocion
 -- AUTOR: Zuriel Cangre
 -- =========================================
