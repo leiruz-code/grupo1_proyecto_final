@@ -249,8 +249,8 @@
 
 <tr>
   <td align="center">`gravedad`</td>
-  <td align="center">`varchar`</td>
-  <td align="center"></td>
+  <td align="center">`int4`</td>
+  <td align="center">Check(1,2,3,4)</td>
 </tr>
 
 <tr>
