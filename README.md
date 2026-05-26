@@ -509,7 +509,7 @@
 
 <br>
 
-<!-- TABLA MTD0_PGO -->
+<!-- TABLA MTDO_PGO -->
 
 <table border="3" cellpadding="10" width="500">
 
@@ -765,7 +765,7 @@
 <tr>
   <td align="center">`estado`</td>
   <td align="center">`bool`</td>
-  <td align="center"></td>
+  <td align="center">Default 'True'</td>
 </tr>
 
 <tr>
