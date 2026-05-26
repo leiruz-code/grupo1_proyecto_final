@@ -775,9 +775,9 @@
 </tr>
 
 <tr>
-  <td align="center">`id_contrato`</td>
-  <td align="center">`int4`</td>
-  <td align="center"></td>
+  <td align="center">`contrato`</td>
+  <td align="center">`varchar`</td>
+  <td align="center">Check('Determinado','Indeterminado','Terminado')</td>
 </tr>
 
 <tr>
