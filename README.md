@@ -764,7 +764,7 @@
 
 <tr>
   <td align="center">`estado`</td>
-  <td align="center">`varchar`</td>
+  <td align="center">`bool`</td>
   <td align="center"></td>
 </tr>
 
