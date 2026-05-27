@@ -146,15 +146,14 @@ WHERE id_lugar = 3
 RETURNING *;
 
 -- =========================================
--- TABLA: 
+-- TABLA: infraccion
 -- AUTOR: Betzabe Huaroc
 -- =========================================
-UPDATE infraccion
-SET
-    gravedad = 'Moderada',
-    pnlzcon_ecnmca = 150
-WHERE id_infraccion = 1
+UPDATE infraccion 
+SET pnlzcon_ecnmca = 180.00
+WHERE tpo_infrccon = 'Retraso' AND gravedad = 'Leve'
 RETURNING *;
+
 
 -- =========================================
 -- TABLA: 
