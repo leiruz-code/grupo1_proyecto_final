@@ -333,3 +333,115 @@ CREATE TABLE prdcto_prmcon (
         FOREIGN KEY (id_promocion)
         REFERENCES promocion(id_promocion)
 );
+
+-- =========================================
+-- TABLA: categoria
+-- AUTOR: Jose Bernedo
+-- =========================================
+CREATE TABLE categoria (
+    id_ctgra SERIAL,
+    nmbre_ctgra VARCHAR(50) NOT NULL,
+    mnmo_edd INTEGER NOT NULL,
+
+    CONSTRAINT pk_ctgra
+        PRIMARY KEY (id_ctgra)
+);
+
+-- =========================================
+-- TABLA: proveedor
+-- AUTOR: Jose Bernedo
+-- =========================================
+CREATE TABLE proveedor (
+    id_proveedor SERIAL,
+    nmbre_prvdor VARCHAR(50) NOT NULL,
+    crro_elctrnco VARCHAR(50) UNIQUE NOT NULL,
+    telefono VARCHAR(9) NOT NULL,
+    direccion VARCHAR(100) NOT NULL,
+
+    CONSTRAINT pk_proveedor
+        PRIMARY KEY (id_proveedor)
+);
+
+-- =========================================
+-- TABLA: producto
+-- AUTOR: Jose Bernedo
+-- =========================================
+CREATE TABLE producto (
+    id_producto SERIAL,
+    nmbre_prdcto VARCHAR(50) NOT NULL,
+    descripcion TEXT,
+    precio_actual NUMERIC(10,2) NOT NULL,
+
+    id_ctgra INTEGER NOT NULL,
+
+    CONSTRAINT pk_producto
+        PRIMARY KEY (id_producto),
+
+    CONSTRAINT fk_producto_categoria
+        FOREIGN KEY (id_ctgra)
+        REFERENCES categoria(id_ctgra)
+);
+
+-- =========================================
+-- TABLA: lote
+-- AUTOR: Jose Bernedo
+-- =========================================
+CREATE TABLE lote (
+    id_lote SERIAL,
+    cantidad INTEGER NOT NULL,
+    precio_compra NUMERIC(10,2) NOT NULL,
+    precio_venta NUMERIC(10,2) NOT NULL,
+    fcha_vncmnto DATE NOT NULL,
+    fcha_ingrso DATE NOT NULL,
+
+    id_proveedor INTEGER NOT NULL,
+
+    CONSTRAINT pk_lote
+        PRIMARY KEY (id_lote),
+
+    CONSTRAINT fk_lote_proveedor
+        FOREIGN KEY (id_proveedor)
+        REFERENCES proveedor(id_proveedor)
+);
+
+-- =========================================
+-- TABLA: presentacion
+-- AUTOR: Jose Bernedo
+-- =========================================
+CREATE TABLE presentacion (
+    id_presentacion SERIAL,
+    nmbre_prsntcon VARCHAR(50) NOT NULL,
+    peso_gramos INTEGER NOT NULL,
+
+    CONSTRAINT pk_presentacion
+        PRIMARY KEY (id_presentacion)
+);
+
+-- =========================================
+-- TABLA: inventario
+-- AUTOR: Jose Bernedo
+-- =========================================
+CREATE TABLE inventario (
+    id_invntro SERIAL,
+    cantidad INTEGER NOT NULL,
+    observacion TEXT,
+
+    id_lote INTEGER UNIQUE NOT NULL,
+    id_producto INTEGER NOT NULL,
+    id_presentacion INTEGER NOT NULL,
+
+    CONSTRAINT pk_invntro
+        PRIMARY KEY (id_invntro),
+
+    CONSTRAINT fk_invntro_producto
+        FOREIGN KEY (id_producto)
+        REFERENCES producto(id_producto),
+
+    CONSTRAINT fk_invntro_lote
+        FOREIGN KEY (id_lote)
+        REFERENCES lote(id_lote),
+
+    CONSTRAINT fk_invntro_presentacion
+        FOREIGN KEY (id_presentacion)
+        REFERENCES presentacion(id_presentacion)
+);
