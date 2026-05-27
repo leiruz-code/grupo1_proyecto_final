@@ -61,13 +61,41 @@ INSERT INTO infraccion (tpo_infrccon, gravedad, descripcion, penalizacion, pnlzc
 -- TABLA: cliente
 -- AUTOR: Zuriel Cangre
 -- =========================================
+-- =========================================
+-- TABLA: cliente
+-- AUTOR: Zuriel Cangre
+-- =========================================
 INSERT INTO cliente (nombres, aplldo_ptrno, aplldo_mtrno, fcha_rgstro, nmro_pddos, teléfono, crro_elctrnco)
 VALUES
 	('Pepe', 'Quispe', 'Hurtado', '2026-05-21', 3, 951753654, 'pepe_quispe@hotmail.com'),
 	('Felipe', 'Huaroc', 'Lopez', '2026-02-20', 7, 987456321, 'felipe_huaroc@gmail.com'),
 	('Fernando', 'Olivera', 'Gomez', '2026-04-24', 4, 963842751, 'fernando_olivera@hotmail.com'),
 	('Cielo', 'Guerra', 'Garcia', '2025-02-19', 1, 953285645, 'cielo_guerra@gmail.com'),
-	('Manuel', 'Medrano', 'Padilla', '2026-01-14', 9, 954685312, 'manuel_medrano@gmail.com')
+	('Manuel', 'Medrano', 'Padilla', '2026-01-14', 9, 954685312, 'manuel_medrano@gmail.com'),
+	('Carlos', 'Mendoza', 'Torres', '2026-03-15', 5, 981234567, 'carlos.mendoza@gmail.com'),
+	('Ana', 'Flores', 'Benitez', '2025-11-12', 12, 945678123, 'ana_flores99@hotmail.com'),
+	('Luis', 'Ramirez', 'Chavez', '2026-01-22', 2, 912345678, 'lucho_ramirez@gmail.com'),
+	('Maria', 'Gutierrez', 'Quispe', '2026-04-05', 8, 934567890, 'maria.gutierrez@outlook.com'),
+	('Jorge', 'Castillo', 'Diaz', '2025-08-19', 15, 956789012, 'jorge_castillo@gmail.com'),
+	('Lucia', 'Espinoza', 'Ramos', '2026-02-28', 4, 978901234, 'lucia.es@hotmail.com'),
+	('Pedro', 'Sanchez', 'Vargas', '2026-05-10', 1, 990123456, 'pedrosanchez@gmail.com'),
+	('Elena', 'Rojas', 'Medina', '2025-06-14', 20, 923456789, 'elena.rojas@gmail.com'),
+	('Raul', 'Velasquez', 'Cruz', '2026-03-01', 6, 945123789, 'raul_velasquez@outlook.com'),
+	('Sofia', 'Campos', 'Villanueva', '2026-05-25', 3, 967890123, 'sofia.campos@gmail.com'),
+	('Diego', 'Aguilar', 'Paredes', '2025-10-05', 11, 989012345, 'daguilar@gmail.com'),
+	('Camila', 'Morales', 'Herrera', '2026-04-18', 7, 911223344, 'camila_morales@hotmail.com'),
+	('Gabriel', 'Fuentes', 'Salazar', '2026-02-11', 0, 922334455, 'gabu.fuentes@gmail.com'),
+	('Valeria', 'Paredes', 'Guerrero', '2025-12-25', 9, 933445566, 'valeparedes@gmail.com'),
+	('Andres', 'Soto', 'Miranda', '2026-01-30', 14, 944556677, 'andres_soto@outlook.com'),
+	('Claudia', 'Tapia', 'Vega', '2026-05-02', 5, 955667788, 'clau.tapia@gmail.com'),
+	('Ricardo', 'Vargas', 'Alvarez', '2025-09-17', 22, 966778899, 'ricardovargas@hotmail.com'),
+	('Diana', 'Caceres', 'Rios', '2026-03-21', 3, 977889900, 'diana.caceres@gmail.com'),
+	('Javier', 'Muñoz', 'Reyes', '2026-04-12', 6, 988990011, 'javiermunoz@gmail.com'),
+	('Beatriz', 'Pinto', 'Lazo', '2025-07-09', 10, 999001122, 'beatriz_pinto@outlook.com'),
+	('Mateo', 'Delgado', 'Cabrera', '2026-02-05', 4, 912398475, 'mateo.delgado@gmail.com'),
+	('Rosa', 'Salas', 'Montoya', '2026-05-15', 2, 934857123, 'rosasalas@hotmail.com'),
+	('Alejandro', 'Zeballos', 'Pari', '2025-11-20', 13, 956284713, 'azeballos@gmail.com'),
+	('Gabriela', 'Ticona', 'Mamani', '2026-01-08', 8, 978135246, 'gabriela_ticona@gmail.com')
 RETURNING id_cliente;
 
 -- =========================================
