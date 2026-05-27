@@ -781,12 +781,6 @@
 </tr>
 
 <tr>
-  <td align="center">`contrato`</td>
-  <td align="center">`varchar`</td>
-  <td align="center">Check('Det','Ind','Ter')</td>
-</tr>
-
-<tr>
   <td align="center">`id_jefe`</td>
   <td align="center">`int4`</td>
   <td align="center">Nullable</td>
