@@ -61,41 +61,38 @@ INSERT INTO infraccion (tpo_infrccon, gravedad, descripcion, penalizacion, pnlzc
 -- TABLA: cliente
 -- AUTOR: Zuriel Cangre
 -- =========================================
--- =========================================
--- TABLA: cliente
--- AUTOR: Zuriel Cangre
--- =========================================
-INSERT INTO cliente (nombres, aplldo_ptrno, aplldo_mtrno, fcha_rgstro, nmro_pddos, teléfono, crro_elctrnco)
+INSERT INTO cliente (dni, nombres, aplldo_ptrno, aplldo_mtrno, crro_elctrnco, telefono, fcha_rgstro, nmro_pddos)
 VALUES
-	('Pepe', 'Quispe', 'Hurtado', '2026-05-21', 3, 951753654, 'pepe_quispe@hotmail.com'),
-	('Felipe', 'Huaroc', 'Lopez', '2026-02-20', 7, 987456321, 'felipe_huaroc@gmail.com'),
-	('Fernando', 'Olivera', 'Gomez', '2026-04-24', 4, 963842751, 'fernando_olivera@hotmail.com'),
-	('Cielo', 'Guerra', 'Garcia', '2025-02-19', 1, 953285645, 'cielo_guerra@gmail.com'),
-	('Manuel', 'Medrano', 'Padilla', '2026-01-14', 9, 954685312, 'manuel_medrano@gmail.com'),
-	('Carlos', 'Mendoza', 'Torres', '2026-03-15', 5, 981234567, 'carlos.mendoza@gmail.com'),
-	('Ana', 'Flores', 'Benitez', '2025-11-12', 12, 945678123, 'ana_flores99@hotmail.com'),
-	('Luis', 'Ramirez', 'Chavez', '2026-01-22', 2, 912345678, 'lucho_ramirez@gmail.com'),
-	('Maria', 'Gutierrez', 'Quispe', '2026-04-05', 8, 934567890, 'maria.gutierrez@outlook.com'),
-	('Jorge', 'Castillo', 'Diaz', '2025-08-19', 15, 956789012, 'jorge_castillo@gmail.com'),
-	('Lucia', 'Espinoza', 'Ramos', '2026-02-28', 4, 978901234, 'lucia.es@hotmail.com'),
-	('Pedro', 'Sanchez', 'Vargas', '2026-05-10', 1, 990123456, 'pedrosanchez@gmail.com'),
-	('Elena', 'Rojas', 'Medina', '2025-06-14', 20, 923456789, 'elena.rojas@gmail.com'),
-	('Raul', 'Velasquez', 'Cruz', '2026-03-01', 6, 945123789, 'raul_velasquez@outlook.com'),
-	('Sofia', 'Campos', 'Villanueva', '2026-05-25', 3, 967890123, 'sofia.campos@gmail.com'),
-	('Diego', 'Aguilar', 'Paredes', '2025-10-05', 11, 989012345, 'daguilar@gmail.com'),
-	('Camila', 'Morales', 'Herrera', '2026-04-18', 7, 911223344, 'camila_morales@hotmail.com'),
-	('Gabriel', 'Fuentes', 'Salazar', '2026-02-11', 0, 922334455, 'gabu.fuentes@gmail.com'),
-	('Valeria', 'Paredes', 'Guerrero', '2025-12-25', 9, 933445566, 'valeparedes@gmail.com'),
-	('Andres', 'Soto', 'Miranda', '2026-01-30', 14, 944556677, 'andres_soto@outlook.com'),
-	('Claudia', 'Tapia', 'Vega', '2026-05-02', 5, 955667788, 'clau.tapia@gmail.com'),
-	('Ricardo', 'Vargas', 'Alvarez', '2025-09-17', 22, 966778899, 'ricardovargas@hotmail.com'),
-	('Diana', 'Caceres', 'Rios', '2026-03-21', 3, 977889900, 'diana.caceres@gmail.com'),
-	('Javier', 'Muñoz', 'Reyes', '2026-04-12', 6, 988990011, 'javiermunoz@gmail.com'),
-	('Beatriz', 'Pinto', 'Lazo', '2025-07-09', 10, 999001122, 'beatriz_pinto@outlook.com'),
-	('Mateo', 'Delgado', 'Cabrera', '2026-02-05', 4, 912398475, 'mateo.delgado@gmail.com'),
-	('Rosa', 'Salas', 'Montoya', '2026-05-15', 2, 934857123, 'rosasalas@hotmail.com'),
-	('Alejandro', 'Zeballos', 'Pari', '2025-11-20', 13, 956284713, 'azeballos@gmail.com'),
-	('Gabriela', 'Ticona', 'Mamani', '2026-01-08', 8, 978135246, 'gabriela_ticona@gmail.com')
+	(45712398, 'Pepe', 'Quispe', 'Hurtado', 'pepe_quispe@hotmail.com', 951753654, '2026-05-21', 3),
+	(70241568, 'Felipe', 'Huaroc', 'Lopez', 'felipe_huaroc@gmail.com', 987456321, '2026-02-20', 7),
+	(15842639, 'Fernando', 'Olivera', 'Gomez', 'fernando_olivera@hotmail.com', 963842751, '2026-04-24', 4),
+	(42369871, 'Cielo', 'Guerra', 'Garcia', 'cielo_guerra@gmail.com', 953285645, '2025-02-19', 1),
+	(29517463, 'Manuel', 'Medrano', 'Padilla', 'manuel_medrano@gmail.com', 954685312, '2026-01-14', 9),
+	(46123958, 'Carlos', 'Mendoza', 'Torres', 'carlos.mendoza@gmail.com', 981234567, '2026-03-15', 5),
+	(71248593, 'Ana', 'Flores', 'Benitez', 'ana_flores99@hotmail.com', 945678123, '2025-11-12', 12),
+	(10243958, 'Luis', 'Ramirez', 'Chavez', 'lucho_ramirez@gmail.com', 912345678, '2026-01-22', 2),
+	(43958124, 'Maria', 'Gutierrez', 'Quispe', 'maria.gutierrez@outlook.com', 934567890, '2026-04-05', 8),
+	(75412963, 'Jorge', 'Castillo', 'Diaz', 'jorge_castillo@gmail.com', 956789012, '2025-08-19', 15),
+	(40129384, 'Lucia', 'Espinoza', 'Ramos', 'lucia.es@hotmail.com', 978901234, '2026-02-28', 4),
+	(19482736, 'Pedro', 'Sanchez', 'Vargas', 'pedrosanchez@gmail.com', 990123456, '2026-05-10', 1),
+	(72039481, 'Elena', 'Rojas', 'Medina', 'elena.rojas@gmail.com', 923456789, '2025-06-14', 20),
+	(45120394, 'Raul', 'Velasquez', 'Cruz', 'raul_velasquez@outlook.com', 945123789, '2026-03-01', 6),
+	(73948102, 'Sofia', 'Campos', 'Villanueva', 'sofia.campos@gmail.com', 967890123, '2026-05-25', 3),
+	(41029384, 'Diego', 'Aguilar', 'Paredes', 'daguilar@gmail.com', 989012345, '2025-10-05', 11),
+	(12938475, 'Camila', 'Morales', 'Herrera', 'camila_morales@hotmail.com', 911223344, '2026-04-18', 7),
+	(48273619, 'Gabriel', 'Fuentes', 'Salazar', 'gabu.fuentes@gmail.com', 922334455, '2026-02-11', 0),
+	(74918230, 'Valeria', 'Paredes', 'Guerrero', 'valeparedes@gmail.com', 933445566, '2025-12-25', 9),
+	(40591827, 'Andres', 'Soto', 'Miranda', 'andres_soto@outlook.com', 944556677, '2026-01-30', 14),
+	(71928304, 'Claudia', 'Tapia', 'Vega', 'clau.tapia@gmail.com', 955667788, '2026-05-02', 5),
+	(42839105, 'Ricardo', 'Vargas', 'Alvarez', 'ricardovargas@hotmail.com', 966778899, '2025-09-17', 22),
+	(10928374, 'Diana', 'Caceres', 'Rios', 'diana.caceres@gmail.com', 977889900, '2026-03-21', 3),
+	(73849201, 'Javier', 'Muñoz', 'Reyes', 'javiermunoz@gmail.com', 988990011, '2026-04-12', 6),
+	(49203948, 'Beatriz', 'Pinto', 'Lazo', 'beatriz_pinto@outlook.com', 999001122, '2025-07-09', 10),
+	(12345678, 'Mateo', 'Delgado', 'Cabrera', 'mateo.delgado@gmail.com', 912398475, '2026-02-05', 4),
+	(87654321, 'Rosa', 'Salas', 'Montoya', 'rosasalas@hotmail.com', 934857123, '2026-05-15', 2),
+	(23456789, 'Alejandro', 'Zeballos', 'Pari', 'azeballos@gmail.com', 956284713, '2025-11-20', 13),
+	(98765432, 'Gabriela', 'Ticona', 'Mamani', 'gabriela_ticona@gmail.com', 978135246, '2026-01-08', 8)
+ON CONFLICT (crro_elctrnco) DO NOTHING
 RETURNING id_cliente;
 
 -- =========================================
