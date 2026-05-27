@@ -150,7 +150,7 @@
 <tr>
   <td align="center">`fecha`</td>
   <td align="center">`timestamp`</td>
-  <td align="center"></td>
+  <td align="center">Default CURRENT_TIMESTAMP</td>
 </tr>
 
 <tr>
