@@ -107,12 +107,12 @@ RETURNING id_prmcon;
 -- =========================================
 INSERT INTO categoria (nmbre_ctgra, mnmo_edd) 
 VALUES
-	('Bebidas', 0),
-	('Snacks', 0),
-	('Lácteos', 0),
+	('Bebidas', 32),
+	('Snacks', 54),
+	('Lácteos', 25),
 	('Productos de Limpieza', 18),
 	('Cuidado Personal', 12),
-	('Panadería', 0)
+	('Panadería', 15)
 RETURNING id_ctgra;
 
 -- =========================================
