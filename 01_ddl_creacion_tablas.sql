@@ -205,3 +205,131 @@ CREATE TABLE acto (
         FOREIGN KEY (id_infraccion)
         REFERENCES infraccion(id_infraccion)
 );
+
+-- =========================================
+-- TABLA: cliente
+-- AUTOR: Zuriel Cangre
+-- =========================================
+CREATE TABLE cliente (
+    id_cliente SERIAL,
+    dni VARCHAR(8) NOT NULL UNIQUE,
+    nombres VARCHAR(100) NOT NULL,
+    aplldo_ptrno VARCHAR(50) NOT NULL,
+    aplldo_mtrno VARCHAR(50) NOT NULL,
+    crro_elctrnco VARCHAR(150) UNIQUE,
+    telefono VARCHAR(15) NOT NULL,
+    fcha_rgstro DATE NOT NULL DEFAULT CURRENT_DATE,
+    nmro_pddos INTEGER NOT NULL DEFAULT 0,
+
+    CONSTRAINT pk_cliente 
+        PRIMARY KEY (id_cliente)
+);
+
+-- =========================================
+-- TABLA: promocion
+-- AUTOR: Zuriel Cangre
+-- =========================================
+CREATE TABLE promocion (
+    id_promocion SERIAL,
+    nmbre_prmcon VARCHAR(100) NOT NULL,
+    fcha_inco TIMESTAMP NOT NULL,
+    fcha_fin TIMESTAMP NOT NULL,
+    descuento NUMERIC(5,2) NOT NULL,
+    cntdad_mnma INTEGER NOT NULL,
+    descripcion TEXT,
+
+    CONSTRAINT pk_promocion
+        PRIMARY KEY (id_promocion)
+);
+
+-- =========================================
+-- TABLA: mtdo_pgo
+-- AUTOR: Zuriel Cangre
+-- =========================================
+CREATE TABLE mtdo_pgo (
+    id_mtdo_pgo SERIAL,
+    nmbre_mtdo_pgo VARCHAR(50) NOT NULL,
+    entidad VARCHAR(100),
+    prcntje_cmson INTEGER NOT NULL,
+
+    CONSTRAINT pk_mtdo_pgo
+        PRIMARY KEY (id_mtdo_pgo)
+);
+
+-- =========================================
+-- TABLA: merma
+-- AUTOR: Zuriel Cangre
+-- =========================================
+CREATE TABLE merma (
+    id_merma SERIAL,
+    nmbre_mrma VARCHAR(100),
+    descripcion TEXT,
+
+    CONSTRAINT pk_merma
+        PRIMARY KEY (id_merma)
+);
+
+-- =========================================
+-- TABLA: colaborador
+-- AUTOR: Zuriel Cangre
+-- =========================================
+CREATE TABLE colaborador (
+    id_clbrdor SERIAL,
+    dni VARCHAR(8) NOT NULL UNIQUE,
+    nombres VARCHAR(100) NOT NULL,
+    aplldo_ptrno VARCHAR(50) NOT NULL,
+    aplldo_mtrno VARCHAR(50) NOT NULL,
+    crro_elctrnco VARCHAR(150) UNIQUE NOT NULL,
+    telefono VARCHAR(15) NOT NULL,
+    fcha_ncmnto DATE NOT NULL,
+    fcha_cntrtcon DATE NOT NULL,
+    fcha_clmncon DATE,
+    bono NUMERIC(10,2),
+    sueldo NUMERIC(10,2) NOT NULL,
+    observacion TEXT,
+    direccion VARCHAR(200) NOT NULL,
+    fcha_ingrso DATE NOT NULL,
+    prdo_cntrto VARCHAR(50),
+    estado BOOLEAN DEFAULT TRUE,
+    id_lugar INTEGER NOT NULL,
+    contrato VARCHAR(3)
+        CHECK (contrato IN ('Det','Ind','Ter')),
+    id_jefe INTEGER,
+
+    CONSTRAINT pk_colaborador
+        PRIMARY KEY (id_clbrdor),
+
+    CONSTRAINT fk_colaborador_lugar
+        FOREIGN KEY (id_lugar)
+        REFERENCES lugar(id_lugar),
+
+    CONSTRAINT fk_colaborador_jefe
+        FOREIGN KEY (id_jefe)
+        REFERENCES colaborador(id_clbrdor)
+);
+
+-- =========================================
+-- TABLA: prdcto_prmcon
+-- AUTOR: Zuriel Cangre
+-- =========================================
+CREATE TABLE prdcto_prmcon (
+    id_prdcto_prmcon SERIAL,
+    id_producto INTEGER NOT NULL,
+    id_lote INTEGER NOT NULL,
+    id_promocion INTEGER NOT NULL,
+
+    CONSTRAINT pk_prdcto_prmcon
+        PRIMARY KEY (id_prdcto_prmcon),
+
+    CONSTRAINT fk_prmcon_producto
+        FOREIGN KEY (id_producto)
+        REFERENCES producto(id_producto),
+
+    CONSTRAINT fk_prmcon_lote
+        FOREIGN KEY (id_lote)
+        REFERENCES lote(id_lote),
+
+    CONSTRAINT fk_prmcon_promocion
+        FOREIGN KEY (id_promocion)
+        REFERENCES promocion(id_promocion)
+);
