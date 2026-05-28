@@ -290,23 +290,32 @@ CREATE TABLE merma (
 -- =========================================
 CREATE TABLE colaborador (
     id_clbrdor SERIAL,
-    dni VARCHAR(8) NOT NULL UNIQUE,
+    dni VARCHAR(8) NOT NULL UNIQUE
+        CHECK (dni ~ '^[0-9]{8}$'),
     nombres VARCHAR(100) NOT NULL,
     aplldo_ptrno VARCHAR(50) NOT NULL,
     aplldo_mtrno VARCHAR(50) NOT NULL,
-    crro_elctrnco VARCHAR(150) UNIQUE NOT NULL,
-    telefono VARCHAR(15) NOT NULL,
+    crro_elctrnco VARCHAR(150) UNIQUE NOT NULL
+        CHECK (crro_elctrnco LIKE '%@%.%'),
+    telefono VARCHAR(9) NOT NULL
+        CHECK (telefono ~ '^9[0-9]{8}$'),
     fcha_ncmnto DATE NOT NULL,
     fcha_cntrtcon DATE NOT NULL,
-    fcha_clmncon DATE,
-    bono NUMERIC(10,2),
-    sueldo NUMERIC(10,2) NOT NULL,
+    fcha_clmncon DATE
+        CHECK (
+            fcha_clmncon IS NULL
+            OR fcha_clmncon >= fcha_cntrtcon
+        ),
+    bono NUMERIC(10,2)
+        CHECK (bono >= 0),
+    sueldo NUMERIC(10,2) NOT NULL
+        CHECK (sueldo > 0),
     observacion TEXT,
     direccion VARCHAR(200) NOT NULL,
     fcha_ingrso DATE NOT NULL,
     prdo_cntrto VARCHAR(50),
     estado BOOLEAN DEFAULT TRUE,
-    id_lugar INTEGER NOT NULL,
+    id_lugar INT NOT NULL,
     contrato VARCHAR(3)
         CHECK (contrato IN ('Det','Ind','Ter')),
     id_jefe INTEGER,
