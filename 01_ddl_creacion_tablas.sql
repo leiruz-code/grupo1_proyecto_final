@@ -369,8 +369,9 @@ CREATE TABLE prdcto_prmcon (
 CREATE TABLE categoria (
     id_ctgra SERIAL,
     nmbre_ctgra VARCHAR(50) NOT NULL,
-    mnmo_edd INTEGER NOT NULL,
-
+    mnmo_edd INTEGER NOT NULL
+        CHECK (mnmo_edd > 0),
+    
     CONSTRAINT pk_ctgra
         PRIMARY KEY (id_ctgra)
 );
