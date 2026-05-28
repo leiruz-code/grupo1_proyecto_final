@@ -149,8 +149,10 @@ CREATE TABLE hstral_prco (
 -- =========================================
 CREATE TABLE prcso_pgo (
     id_prcso_pgo SERIAL,
-    comision NUMERIC(10,2),
-    ingrso_nto NUMERIC(10,2) NOT NULL,
+    comision NUMERIC(10,2)
+        CHECK (comision >= 0),
+    ingrso_nto NUMERIC(10,2) NOT NULL
+        CHECK (ingrso_nto >= 0),
     id_pedido INT NOT NULL,
     id_mtdo_pgo INT NOT NULL,
 
