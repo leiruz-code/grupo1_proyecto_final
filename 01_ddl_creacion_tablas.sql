@@ -436,12 +436,13 @@ CREATE TABLE presentacion (
 -- =========================================
 CREATE TABLE inventario (
     id_invntro SERIAL,
-    cantidad INTEGER NOT NULL,
+    cantidad INT NOT NULL
+        CHECK (cantidad >= 0),
     observacion TEXT,
 
-    id_lote INTEGER UNIQUE NOT NULL,
-    id_producto INTEGER NOT NULL,
-    id_presentacion INTEGER NOT NULL,
+    id_lote INT UNIQUE NOT NULL,
+    id_producto INT NOT NULL,
+    id_presentacion INT NOT NULL,
 
     CONSTRAINT pk_invntro
         PRIMARY KEY (id_invntro),
