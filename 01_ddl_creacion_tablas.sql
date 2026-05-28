@@ -386,8 +386,10 @@ CREATE TABLE categoria (
 CREATE TABLE proveedor (
     id_proveedor SERIAL,
     nmbre_prvdor VARCHAR(50) NOT NULL,
-    crro_elctrnco VARCHAR(50) UNIQUE NOT NULL,
-    telefono VARCHAR(9) NOT NULL,
+    crro_elctrnco VARCHAR(50) UNIQUE NOT NULL
+        CHECK (crro_elctrnco LIKE '%@%.%'),
+    telefono VARCHAR(9) NOT NULL
+        CHECK (telefono ~ '^9[0-9]{8}$'),
     direccion VARCHAR(100) NOT NULL,
 
     CONSTRAINT pk_proveedor
