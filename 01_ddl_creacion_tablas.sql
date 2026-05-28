@@ -36,7 +36,8 @@ CREATE TABLE infraccion (
     gravedad INT NOT NULL CHECK (gravedad IN (1,2,3,4)),
     descripcion TEXT,
     penalizacion TEXT,
-    pnlzcon_ecnmca INT,
+    pnlzcon_ecnmca INT
+        CHECK (pnlzcon_ecnmca >= 0),
 
     CONSTRAINT pk_infraccion 
         PRIMARY KEY (id_infraccion)
