@@ -212,14 +212,18 @@ CREATE TABLE acto (
 -- =========================================
 CREATE TABLE cliente (
     id_cliente SERIAL,
-    dni VARCHAR(8) NOT NULL UNIQUE,
+    dni VARCHAR(8) NOT NULL UNIQUE
+        CHECK (dni ~ '^[0-9]{8}$'),
     nombres VARCHAR(100) NOT NULL,
     aplldo_ptrno VARCHAR(50) NOT NULL,
     aplldo_mtrno VARCHAR(50) NOT NULL,
-    crro_elctrnco VARCHAR(150) UNIQUE,
-    telefono VARCHAR(15) NOT NULL,
+    crro_elctrnco VARCHAR(150) UNIQUE
+        CHECK (crro_elctrnco IS NULL OR crro_elctrnco LIKE '%@%.%'),
+    telefono VARCHAR(8) NOT NULL
+        CHECK (telefono ~ '^9[0-9]{8}$'),
     fcha_rgstro DATE NOT NULL DEFAULT CURRENT_DATE,
-    nmro_pddos INTEGER NOT NULL DEFAULT 0,
+    nmro_pddos INT NOT NULL DEFAULT 0
+        CHECK (nmro_pddos >= 0),
 
     CONSTRAINT pk_cliente 
         PRIMARY KEY (id_cliente)
