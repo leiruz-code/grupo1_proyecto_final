@@ -263,7 +263,8 @@ CREATE TABLE mtdo_pgo (
     id_mtdo_pgo SERIAL,
     nmbre_mtdo_pgo VARCHAR(50) NOT NULL,
     entidad VARCHAR(100),
-    prcntje_cmson INTEGER NOT NULL,
+    prcntje_cmson INT NOT NULL
+        CHECK (prcntje_cmson BETWEEN 1 AND 100),
 
     CONSTRAINT pk_mtdo_pgo
         PRIMARY KEY (id_mtdo_pgo)
