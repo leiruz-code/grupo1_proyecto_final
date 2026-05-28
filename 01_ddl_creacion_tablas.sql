@@ -423,7 +423,8 @@ CREATE TABLE lote (
 CREATE TABLE presentacion (
     id_presentacion SERIAL,
     nmbre_prsntcon VARCHAR(50) NOT NULL,
-    peso_gramos INTEGER NOT NULL,
+    peso_gramos INTEGER NOT NULL
+        CHECK (peso_gramos > 0),
 
     CONSTRAINT pk_presentacion
         PRIMARY KEY (id_presentacion)
