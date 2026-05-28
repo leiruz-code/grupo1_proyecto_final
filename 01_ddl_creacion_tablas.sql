@@ -99,9 +99,12 @@ CREATE TABLE dtlle_mrma (
 -- =========================================
 CREATE TABLE pedido (
     id_pedido SERIAL,
-    precio_total NUMERIC(10,2) NOT NULL,
-    dscnto_ttal NUMERIC(10,2),
-    fecha TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    precio_total NUMERIC(10,2) NOT NULL
+        CHECK (precio_total >= 0),
+    dscnto_ttal NUMERIC(10,2)
+        CHECK (dscnto_ttal >= 0),
+    fecha TIMESTAMP NOT NULL 
+        DEFAULT CURRENT_TIMESTAMP,
     id_cliente INT NOT NULL,
     id_clbrdor INT NOT NULL,
 
@@ -219,7 +222,7 @@ CREATE TABLE cliente (
     aplldo_mtrno VARCHAR(50) NOT NULL,
     crro_elctrnco VARCHAR(150) UNIQUE
         CHECK (crro_elctrnco IS NULL OR crro_elctrnco LIKE '%@%.%'),
-    telefono VARCHAR(8) NOT NULL
+    telefono VARCHAR(9) NOT NULL
         CHECK (telefono ~ '^9[0-9]{8}$'),
     fcha_rgstro DATE NOT NULL DEFAULT CURRENT_DATE,
     nmro_pddos INT NOT NULL DEFAULT 0
