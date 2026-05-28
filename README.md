@@ -37,7 +37,7 @@
 <tr>
 
 <!-- COLUMNA IZQUIERDA -->
-<td valign="top" width="500" align="center">
+<td valign="top" width="700" align="center">
   
 <!-- TABLA CLIENTE -->
 
@@ -64,7 +64,7 @@
 <tr>
   <td align="center">`dni`</td>
   <td align="center">`varchar`</td>
-  <td align="center">Unique</td>
+  <td align="center">Unique Check('^[0-9]{8}$')</td>
 </tr>
 
 <tr>
@@ -88,13 +88,13 @@
 <tr>
   <td align="center">`crro_elctrnco`</td>
   <td align="center">`varchar`</td>
-  <td align="center">Nullable Unique</td>
+  <td align="center">Unique Check(NULL OR '%@%.%')</td>
 </tr>
 
 <tr>
   <td align="center">`telefono`</td>
   <td align="center">`varchar`</td>
-  <td align="center"></td>
+  <td align="center">Check('^9[0-9]{8}$')</td>
 </tr>
 
 <tr>
@@ -106,7 +106,7 @@
 <tr>
   <td align="center">`nmro_pddos`</td>
   <td align="center">`int4`</td>
-  <td align="center"></td>
+  <td align="center">Check(>= 0)</td>
 </tr>
 
 </table>
@@ -138,13 +138,13 @@
 <tr>
   <td align="center">`precio_total`</td>
   <td align="center">`numeric`</td>
-  <td align="center"></td>
+  <td align="center">Check(>= 0)</td>
 </tr>
 
 <tr>
   <td align="center">`dscnto_ttal`</td>
   <td align="center">`numeric`</td>
-  <td align="center">Nullable</td>
+  <td align="center">CHECK(NULL OR >= 0)</td>
 </tr>
 
 <tr>
@@ -200,19 +200,19 @@
 <tr>
   <td align="center">`unidades`</td>
   <td align="center">`int4`</td>
-  <td align="center"></td>
+  <td align="center">Check(> 0)</td>
 </tr>
 
 <tr>
   <td align="center">`precio_unidad`</td>
   <td align="center">`numeric`</td>
-  <td align="center"></td>
+  <td align="center">Check(>= 0)</td>
 </tr>
 
 <tr>
   <td align="center">`precio_final`</td>
   <td align="center">`numeric`</td>
-  <td align="center"></td>
+  <td align="center">Check(>= 0)</td>
 </tr>
 
 </table>
@@ -268,7 +268,7 @@
 <tr>
   <td align="center">`pnlzcon_ecnmca`</td>
   <td align="center">`int4`</td>
-  <td align="center">Nullable</td>
+  <td align="center">Check(NULL OR >= 0)</td>
 </tr>
 
 </table>
@@ -356,7 +356,7 @@
 <tr>
   <td align="center">`precio_actual`</td>
   <td align="center">`numeric`</td>
-  <td align="center"></td>
+  <td align="center">Check(>= 0)</td>
 </tr>
 
 <tr>
@@ -400,7 +400,7 @@
 <tr>
   <td align="center">`peso_gramos`</td>
   <td align="center">`int4`</td>
-  <td align="center"></td>
+  <td align="center">Check(> 0)</td>
 </tr>
 
 </table>
@@ -432,7 +432,7 @@
 <tr>
   <td align="center">`cantidad`</td>
   <td align="center">`int4`</td>
-  <td align="center"></td>
+  <td align="center">Check(>= 0)</td>
 </tr>
 
 <tr>
@@ -489,13 +489,13 @@
 <tr>
   <td align="center">`comision`</td>
   <td align="center">`numeric`</td>
-  <td align="center">Nullable</td>
+  <td align="center">Check(NULL OR >= 0)</td>
 </tr>
 
 <tr>
   <td align="center">`ingrso_nto`</td>
   <td align="center">`numeric`</td>
-  <td align="center"></td>
+  <td align="center">Check(>= 0)</td>
 </tr>
 
 <tr>
@@ -552,7 +552,7 @@
 <tr>
   <td align="center">`prcntje_cmson`</td>
   <td align="center">`int4`</td>
-  <td align="center"></td>
+  <td align="center">Check(BEETWEN 1 AND 100)</td>
 </tr>
 
 </table>
@@ -622,7 +622,7 @@
 <tr>
   <td align="center">`cantidad`</td>
   <td align="center">`int4`</td>
-  <td align="center"></td>
+  <td align="center">Check(> 0)</td>
 </tr>
 
 <tr>
@@ -654,7 +654,7 @@
 </td>
 
 <!-- COLUMNA DERECHA -->
-<td valign="top" width="500" align="center">
+<td valign="top" width="700" align="center">
   
 <!-- TABLA COLABORADOR -->
 
@@ -681,7 +681,7 @@
 <tr>
   <td align="center">`dni`</td>
   <td align="center">`varchar`</td>
-  <td align="center">Unique</td>
+  <td align="center">Unique Check('^[0-9]{8}$')</td>
 </tr>
 
 <tr>
@@ -705,13 +705,13 @@
 <tr>
   <td align="center">`crro_elctrnco`</td>
   <td align="center">`varchar`</td>
-  <td align="center">Unique</td>
+  <td align="center">Unique Check('%@%.%')</td>
 </tr>
 
 <tr>
   <td align="center">`telefono`</td>
   <td align="center">`varchar`</td>
-  <td align="center"></td>
+  <td align="center">Check('^9[0-9]{8}$')</td>
 </tr>
 
 <tr>
@@ -729,19 +729,19 @@
 <tr>
   <td align="center">`fecha_clmncon`</td>
   <td align="center">`date`</td>
-  <td align="center">Nullable</td>
+  <td align="center">Check(NULL OR >= fcha_cntrtcon)</td>
 </tr>
 
 <tr>
   <td align="center">`bono`</td>
   <td align="center">`numeric`</td>
-  <td align="center">Nullable</td>
+  <td align="center">Check(NULL OR >= 0)</td>
 </tr>
 
 <tr>
   <td align="center">`sueldo`</td>
   <td align="center">`numeric`</td>
-  <td align="center"></td>
+  <td align="center">Check(> 0)</td>
 </tr>
 
 <tr>
@@ -916,7 +916,7 @@
 <tr>
   <td align="center">`hora_salida`</td>
   <td align="center">`time`</td>
-  <td align="center"></td>
+  <td align="center">Check(> hora_entrada)</td>
 </tr>
 
 <tr>
@@ -978,19 +978,19 @@
 <tr>
   <td align="center">`fcha_fin`</td>
   <td align="center">`timestamp`</td>
-  <td align="center"></td>
+  <td align="center">Check(> fcha_inco)</td>
 </tr>
 
 <tr>
   <td align="center">`descuento`</td>
   <td align="center">`numeric`</td>
-  <td align="center"></td>
+  <td align="center">Check(>= 0)</td>
 </tr>
 
 <tr>
   <td align="center">`cntdad_mnma`</td>
   <td align="center">`int4`</td>
-  <td align="center"></td>
+  <td align="center">Check(> 0)</td>
 </tr>
 
 <tr>
@@ -1078,7 +1078,7 @@
 <tr>
   <td align="center">`mnmo_edd`</td>
   <td align="center">`int4`</td>
-  <td align="center"></td>
+  <td align="center">Check(> 0)</td>
 </tr>
 
 </table>
@@ -1110,25 +1110,25 @@
 <tr>
   <td align="center">`cantidad`</td>
   <td align="center">`int4`</td>
-  <td align="center"></td>
+  <td align="center">Check(> 0)</td>
 </tr>
 
 <tr>
   <td align="center">`precio_compra`</td>
   <td align="center">`numeric`</td>
-  <td align="center"></td>
+  <td align="center">Check(>= 0)</td>
 </tr>
 
 <tr>
   <td align="center">`precio_venta`</td>
   <td align="center">`numeric`</td>
-  <td align="center"></td>
+  <td align="center">Check(>= 0 AND >= precio_compra)</td>
 </tr>
 
 <tr>
   <td align="center">`fcha_vncmnto`</td>
   <td align="center">`date`</td>
-  <td align="center"></td>
+  <td align="center">Check(> fcha_ingrso)</td>
 </tr>
 
 <tr>
@@ -1178,13 +1178,13 @@
 <tr>
   <td align="center">`prco_antror`</td>
   <td align="center">`numeric`</td>
-  <td align="center"></td>
+  <td align="center">Check(>= 0)</td>
 </tr>
 
 <tr>
   <td align="center">`prco_nvo`</td>
   <td align="center">`numeric`</td>
-  <td align="center"></td>
+  <td align="center">Check(>= 0)</td>
 </tr>
 
 <tr>
@@ -1228,13 +1228,13 @@
 <tr>
   <td align="center">`crro_elctrnco`</td>
   <td align="center">`varchar`</td>
-  <td align="center">Unique</td>
+  <td align="center">Unique Check('%@%.%')</td>
 </tr>
 
 <tr>
   <td align="center">`telefono`</td>
   <td align="center">`varchar`</td>
-  <td align="center"></td>
+  <td align="center">Check('^9[0-9]{8}$')</td>
 </tr>
 
 <tr>
