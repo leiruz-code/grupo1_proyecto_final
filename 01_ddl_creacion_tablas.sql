@@ -75,7 +75,8 @@ CREATE TABLE dtlle_pddo (
 -- =========================================
 CREATE TABLE dtlle_mrma (
     id_dtlle_mrma SERIAL,
-    cantidad INT NOT NULL,
+    cantidad INT NOT NULL
+        CHECK (cantidad > 0),
     descripcion TEXT,
     id_merma INT NOT NULL,
     id_producto INT NOT NULL,
