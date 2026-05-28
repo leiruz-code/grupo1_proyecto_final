@@ -131,9 +131,12 @@ CREATE TABLE pedido (
 -- =========================================
 CREATE TABLE hstral_prco (
     id_hstral_prco SERIAL,
-    fcha_cmbo TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    prco_antror NUMERIC(10,2) NOT NULL,
-    prco_nvo NUMERIC(10,2) NOT NULL,
+    fcha_cmbo TIMESTAMP NOT NULL 
+        DEFAULT CURRENT_TIMESTAMP,
+    prco_antror NUMERIC(10,2) NOT NULL
+        CHECK (prco_antror >= 0),
+    prco_nvo NUMERIC(10,2) NOT NULL
+        CHECK (prco_nvo >= 0),
     id_producto INT NOT NULL,
 
     CONSTRAINT pk_hstral_prco
