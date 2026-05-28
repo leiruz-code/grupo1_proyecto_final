@@ -49,9 +49,12 @@ CREATE TABLE infraccion (
 CREATE TABLE dtlle_pddo (
     id_pedido INT NOT NULL,
     id_producto INT NOT NULL,
-    unidades INT NOT NULL,
-    precio_unidad NUMERIC(10,2) NOT NULL,
-    precio_final NUMERIC(10,2) NOT NULL,
+    unidades INT NOT NULL
+        CHECK (unidades > 0),
+    precio_unidad NUMERIC(10,2) NOT NULL
+        CHECK (precio_unidad >= 0),
+    precio_final NUMERIC(10,2) NOT NULL
+        CHECK (precio_final >= 0),
 
     CONSTRAINT pk_dtlle_pddo 
         PRIMARY KEY (id_pedido, id_producto),
