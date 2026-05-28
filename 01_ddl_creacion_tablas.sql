@@ -369,7 +369,7 @@ CREATE TABLE prdcto_prmcon (
 CREATE TABLE categoria (
     id_ctgra SERIAL,
     nmbre_ctgra VARCHAR(50) NOT NULL,
-    mnmo_edd INTEGER NOT NULL
+    mnmo_edd INT NOT NULL
         CHECK (mnmo_edd > 0),
     
     CONSTRAINT pk_ctgra
@@ -418,10 +418,17 @@ CREATE TABLE producto (
 -- =========================================
 CREATE TABLE lote (
     id_lote SERIAL,
-    cantidad INTEGER NOT NULL,
-    precio_compra NUMERIC(10,2) NOT NULL,
-    precio_venta NUMERIC(10,2) NOT NULL,
-    fcha_vncmnto DATE NOT NULL,
+    cantidad INT NOT NULL
+        CHECK (cantidad > 0),
+    precio_compra NUMERIC(10,2) NOT NULL
+        CHECK (precio_compra >= 0),
+    precio_venta NUMERIC(10,2) NOT NULL
+        CHECK (
+            precio_venta >= 0
+            AND precio_venta <= precio_compra
+        ),
+    fcha_vncmnto DATE NOT NULL
+        CHECK (fcha_vncmnto > fcha_ingrso),
     fcha_ingrso DATE NOT NULL,
 
     id_proveedor INTEGER NOT NULL,
