@@ -248,9 +248,12 @@ CREATE TABLE promocion (
     id_promocion SERIAL,
     nmbre_prmcon VARCHAR(100) NOT NULL,
     fcha_inco TIMESTAMP NOT NULL,
-    fcha_fin TIMESTAMP NOT NULL,
-    descuento NUMERIC(5,2) NOT NULL,
-    cntdad_mnma INTEGER NOT NULL,
+    fcha_fin TIMESTAMP NOT NULL
+        CHECK (fcha_fin > fcha_inco),
+    descuento NUMERIC(5,2) NOT NULL
+        CHECK (descuento >= 0),
+    cntdad_mnma INT NOT NULL
+        CHECK (cntdad_mnma > 0),
     descripcion TEXT,
 
     CONSTRAINT pk_promocion
