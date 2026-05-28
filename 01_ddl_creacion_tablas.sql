@@ -177,7 +177,8 @@ CREATE TABLE jornada (
     id_jornada SERIAL,
     jrnda_cmplta BOOLEAN NOT NULL,
     hora_entrada TIME NOT NULL,
-    hora_salida TIME NOT NULL,
+    hora_salida TIME NOT NULL
+        CHECK (hora_salida > hora_entrada),
     fecha DATE NOT NULL,
     id_clbrdor INT NOT NULL,
     id_turno INT NOT NULL,
