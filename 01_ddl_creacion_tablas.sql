@@ -381,7 +381,8 @@ CREATE TABLE producto (
     id_producto SERIAL,
     nmbre_prdcto VARCHAR(50) NOT NULL,
     descripcion TEXT,
-    precio_actual NUMERIC(10,2) NOT NULL,
+    precio_actual NUMERIC(10,2) NOT NULL
+        CHECK (precio_actual >= 0),
 
     id_ctgra INTEGER NOT NULL,
 
