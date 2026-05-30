@@ -212,6 +212,32 @@ INSERT INTO mtdo_pgo (nmbre_mtdo_pgo, entidad, prcntje_cmson) VALUES
 ('Tarjeta de Débito', 'Mastercard', 5.00)
 RETURNING id_mtdo_pgo;
 
+-- =========================================
+-- TABLA: merma
+-- AUTOR: Zuriel Cangre
+-- =========================================
+INSERT INTO merma (nmbre_mrma, descripcion) VALUES
+('Producto Vencido', 'Lácteos con fecha de caducidad superada en el estante de exhibición.'),
+('Rotura por Manipulación', 'Botella de vidrio de refresco rota debido a una caída durante el reabastecimiento.'),
+('Empaque Dañado', 'Caja de cereal aplastada en el almacén que dejó expuesto el producto interior.'),
+('Falla de Cadena de Frío', 'Deterioro de embutidos por corte de energía temporal en la vitrina refrigerada.'),
+('Producto Vencido', 'Paquetes de pan de molde que presentaron de forma prematura hongos.'),
+('Deterioro de Fábrica', 'Latas de conserva abolladas detectadas al momento de recepcionar el lote.')
+RETURNING id_merma;
+
+-- =========================================
+-- TABLA: merma
+-- AUTOR: Zuriel Cangre
+-- =========================================
+INSERT INTO merma (nmbre_mrma, descripcion) VALUES
+('Producto Vencido', 'Lácteos con fecha de caducidad superada en el estante de exhibición.'),
+('Rotura por Manipulación', 'Botella de vidrio de refresco rota debido a una caída durante el reabastecimiento.'),
+('Empaque Dañado', 'Caja de cereal aplastada en el almacén que dejó expuesto el producto interior.'),
+('Falla de Cadena de Frío', 'Deterioro de embutidos por corte de energía temporal en la vitrina refrigerada.'),
+('Producto Vencido', 'Paquetes de pan de molde que presentaron de forma prematura hongos.'),
+('Deterioro de Fábrica', 'Latas de conserva abolladas detectadas al momento de recepcionar el lote.')
+RETURNING id_merma;
+
 
 -- ======================================================
 -- 						--- UPDATE ---
