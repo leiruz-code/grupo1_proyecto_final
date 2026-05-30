@@ -196,6 +196,22 @@ INSERT INTO pedido (precio_total, dscnto_ttal, fecha, id_clbrdor, id_cliente) VA
 (95.50, 10.00, '2026-05-27 10:00:00', 1, 22)
 RETURNING id_pedido;
 
+-- 1. CORRECCIÓN DE LA REGLA (CHECK CONSTRAINT)
+-- Eliminamos la restricción antigua que no aceptaba ceros
+ALTER TABLE mtdo_pgo DROP CONSTRAINT IF EXISTS chk_mtdo_pgo_porcentaje;
+-- Creamos la nueva regla que permite valores mayores o iguales a cero
+ALTER TABLE mtdo_pgo ADD CONSTRAINT chk_mtdo_pgo_porcentaje CHECK (prcntje_cmson >= 0);
+-- ======================================================
+-- 2. INSERCIÓN DE LOS DATOS (AUTOR: Zuriel Cangre)
+-- ======================================================
+INSERT INTO mtdo_pgo (nmbre_mtdo_pgo, entidad, prcntje_cmson) VALUES
+('Efectivo', 'Ninguna', 0.00),
+('Yape', 'BCP', 0.00),
+('Plin', 'Interbank', 0.00),
+('Tarjeta de Crédito', 'Visa', 5.00),
+('Tarjeta de Débito', 'Mastercard', 5.00)
+RETURNING id_mtdo_pgo;
+
 
 -- ======================================================
 -- 						--- UPDATE ---
