@@ -382,6 +382,23 @@ VALUES
 	('Fuga de Refrigerante', 'Producto afectado por incidente relacionado con equipos de refrigeración.'),
 	('Recepción en Mal Estado', 'Producto recibido con defectos visibles que impiden su comercialización.');
 
+-- =========================================
+-- TABLA: dtlle_mrma
+-- AUTOR: 
+-- =========================================
+INSERT INTO dtlle_mrma (id_dtlle_mrma, cantidad, descripcion, id_merma, id_lote) 
+VALUES
+	(1, 5, 'Se encontraron productos vencidos durante la revisión de inventario mensual.', 1, 1),
+	(2, 3, 'Algunas unidades sufrieron roturas durante el reabastecimiento de estanterías.', 2, 4),
+	(3, 4, 'Se detectaron empaques dañados antes de su exhibición para la promoción 3x2.', 3, 8),
+	(4, 2, 'Productos refrigerados afectados por un corte temporal de energía.', 4, 10),
+	(5, 6, 'Se recibieron envases abollados al momento de ingresar el lote.', 5, 13),
+	(6, 3, 'Productos contaminados por derrame accidental en almacén.', 6, 16),
+	(7, 5, 'Daño por humedad detectado durante inspección de almacén.', 7, 18),
+	(8, 2, 'Productos retirados por presencia de plagas en el área de almacenamiento.', 8, 21),
+	(9, 4, 'Etiquetas ilegibles detectadas antes de la venta al público.', 9, 24),
+	(10, 3, 'Envases con sellado defectuoso identificados en control de calidad.', 10, 27);
+
 -- ======================================================
 -- 						--- UPDATE ---
 -- ======================================================
