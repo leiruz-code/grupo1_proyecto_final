@@ -163,6 +163,10 @@ VALUES
 	('Tarjeta de Crédito', 'Visa', 5.00),
 	('Tarjeta de Débito', 'Mastercard', 5.00);
 
+-- =========================================
+-- TABLA: producto
+-- AUTOR: 
+-- =========================================
 INSERT INTO producto (id_producto, nmbre_prdcto, descripcion, precio_actual, id_ctgra) 
 VALUES
 	('Coca Cola 500ml', 'Bebida gaseosa personal', 3.50, 1),
