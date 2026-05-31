@@ -56,9 +56,10 @@ CREATE TABLE dtlle_pddo (
         CHECK (precio_unidad >= 0),
     precio_final NUMERIC(10,2) NOT NULL
         CHECK (precio_final >= 0),
-
+    id_dtlle_pddo SERIAL,
+    
     CONSTRAINT pk_dtlle_pddo 
-        PRIMARY KEY (id_pedido, id_producto),
+        PRIMARY KEY (id_dtlle_pddo),
 
     CONSTRAINT fk_dtlle_pddo_pedido 
         FOREIGN KEY (id_pedido) 
