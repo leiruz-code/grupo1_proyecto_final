@@ -41,20 +41,6 @@ INSERT INTO turno (nmbre_trno, hora_inicio, hora_fin) VALUES
   RETURNING id_turno;
 
 -- =========================================
--- TABLA: contrato
--- AUTOR: Betzabe Huaroc
--- =========================================
-INSERT INTO contrato (nmbre_contrto) VALUES
-('Contrato de Prestación de Servicios de TI - Fase 1'),
-('Contrato de Suministro de Papelería y Útiles de Oficina'),
-('Contrato de Arrendamiento de Oficinas Corporativas - Piso 4'),
-('Contrato de Mantenimiento Preventivo de Aire Acondicionado'),
-('Contrato de Consultoría en Seguridad de la Información'),
-('Contrato de Desarrollo de Software y Licenciamiento'),
-('Contrato de Servicio de Limpieza e Higienización'),
-('Contrato de Transporte y Logística de Distribución') RETURNING id_contrato; 
-
--- =========================================
 -- TABLA: infraccion
 -- AUTOR: Betzabe Huaroc
 -- =========================================
