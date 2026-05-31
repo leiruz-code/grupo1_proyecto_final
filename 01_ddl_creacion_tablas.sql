@@ -79,7 +79,6 @@ CREATE TABLE dtlle_mrma (
         CHECK (cantidad > 0),
     descripcion TEXT,
     id_merma INT NOT NULL,
-    id_producto INT NOT NULL,
     id_lote INT NOT NULL,
 
     CONSTRAINT pk_dtlle_mrma 
@@ -88,10 +87,6 @@ CREATE TABLE dtlle_mrma (
     CONSTRAINT fk_dtlle_mrma_merma 
         FOREIGN KEY (id_merma)
         REFERENCES merma(id_merma),
-
-    CONSTRAINT fk_dtlle_mrma_producto 
-        FOREIGN KEY (id_producto)
-        REFERENCES producto(id_producto),
 
     CONSTRAINT fk_dtlle_mrma_lote 
         FOREIGN KEY (id_lote)
@@ -253,11 +248,11 @@ CREATE TABLE promocion (
     fcha_inco TIMESTAMP NOT NULL,
     fcha_fin TIMESTAMP NOT NULL
         CHECK (fcha_fin > fcha_inco),
-    descuento NUMERIC(5,2) NOT NULL
-        CHECK (descuento >= 0),
     cntdad_mnma INT NOT NULL
         CHECK (cntdad_mnma > 0),
     descripcion TEXT,
+    dscnto_max NUMERIC(5,2) NOT NULL
+        CHECK (descuento >= 0),
 
     CONSTRAINT pk_promocion
         PRIMARY KEY (id_promocion)
@@ -272,7 +267,7 @@ CREATE TABLE mtdo_pgo (
     nmbre_mtdo_pgo VARCHAR(50) NOT NULL,
     entidad VARCHAR(100),
     prcntje_cmson INT NOT NULL
-        CHECK (prcntje_cmson BETWEEN 1 AND 100),
+        CHECK (prcntje_cmson BETWEEN 0 AND 100),
 
     CONSTRAINT pk_mtdo_pgo
         PRIMARY KEY (id_mtdo_pgo)
@@ -325,7 +320,7 @@ CREATE TABLE colaborador (
     id_lugar INT NOT NULL,
     contrato VARCHAR(3)
         CHECK (contrato IN ('Det','Ind','Ter')),
-    id_jefe INTEGER,
+    id_jefe INT,
 
     CONSTRAINT pk_colaborador
         PRIMARY KEY (id_clbrdor),
@@ -345,16 +340,11 @@ CREATE TABLE colaborador (
 -- =========================================
 CREATE TABLE prdcto_prmcon (
     id_prdcto_prmcon SERIAL,
-    id_producto INTEGER NOT NULL,
-    id_lote INTEGER NOT NULL,
-    id_promocion INTEGER NOT NULL,
+    id_lote INT NOT NULL,
+    id_promocion INT NOT NULL,
 
     CONSTRAINT pk_prdcto_prmcon
         PRIMARY KEY (id_prdcto_prmcon),
-
-    CONSTRAINT fk_prmcon_producto
-        FOREIGN KEY (id_producto)
-        REFERENCES producto(id_producto),
 
     CONSTRAINT fk_prmcon_lote
         FOREIGN KEY (id_lote)
@@ -436,14 +426,24 @@ CREATE TABLE lote (
         CHECK (fcha_vncmnto > fcha_ingrso),
     fcha_ingrso DATE NOT NULL,
 
-    id_proveedor INTEGER NOT NULL,
+    id_proveedor INT NOT NULL,
+    id_producto INT NOT NULL,
+    id_presentacion INT NOT NULL,
 
     CONSTRAINT pk_lote
         PRIMARY KEY (id_lote),
 
     CONSTRAINT fk_lote_proveedor
         FOREIGN KEY (id_proveedor)
-        REFERENCES proveedor(id_proveedor)
+        REFERENCES proveedor(id_proveedor),
+
+    CONSTRAINT fk_lote_producto
+        FOREIGN KEY (id_producto)
+        REFERENCES producto(id_producto),
+    
+    CONSTRAINT fk_lote_presentacion
+        FOREIGN KEY (id_presentacion)
+        REFERENCES presentacion(id_presentacion)
 );
 
 -- =========================================
@@ -453,7 +453,7 @@ CREATE TABLE lote (
 CREATE TABLE presentacion (
     id_presentacion SERIAL,
     nmbre_prsntcon VARCHAR(50) NOT NULL,
-    peso_gramos INTEGER NOT NULL
+    peso_gramos INT NOT NULL
         CHECK (peso_gramos > 0),
 
     CONSTRAINT pk_presentacion
@@ -471,21 +471,11 @@ CREATE TABLE inventario (
     observacion TEXT,
 
     id_lote INT UNIQUE NOT NULL,
-    id_producto INT NOT NULL,
-    id_presentacion INT NOT NULL,
 
     CONSTRAINT pk_invntro
         PRIMARY KEY (id_invntro),
 
-    CONSTRAINT fk_invntro_producto
-        FOREIGN KEY (id_producto)
-        REFERENCES producto(id_producto),
-
     CONSTRAINT fk_invntro_lote
         FOREIGN KEY (id_lote)
         REFERENCES lote(id_lote),
-
-    CONSTRAINT fk_invntro_presentacion
-        FOREIGN KEY (id_presentacion)
-        REFERENCES presentacion(id_presentacion)
 );
