@@ -63,11 +63,15 @@ CREATE TABLE dtlle_pddo (
 
     CONSTRAINT fk_dtlle_pddo_pedido 
         FOREIGN KEY (id_pedido) 
-        REFERENCES pedido(id_pedido),
+        REFERENCES pedido(id_pedido)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
 
     CONSTRAINT fk_dtlle_pddo_producto 
         FOREIGN KEY (id_producto) 
         REFERENCES producto(id_producto)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
 );
 
 -- =========================================
@@ -87,11 +91,15 @@ CREATE TABLE dtlle_mrma (
 
     CONSTRAINT fk_dtlle_mrma_merma 
         FOREIGN KEY (id_merma)
-        REFERENCES merma(id_merma),
+        REFERENCES merma(id_merma)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
 
     CONSTRAINT fk_dtlle_mrma_lote 
         FOREIGN KEY (id_lote)
         REFERENCES lote(id_lote)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
 );
 
 -- =========================================
@@ -114,11 +122,15 @@ CREATE TABLE pedido (
 
     CONSTRAINT fk_pedido_cliente 
         FOREIGN KEY (id_cliente)
-        REFERENCES cliente(id_cliente),
+        REFERENCES cliente(id_cliente)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE,
 
     CONSTRAINT fk_pedido_colaborador 
         FOREIGN KEY (id_clbrdor)
         REFERENCES colaborador(id_clbrdor)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
 );
 
 -- =========================================
@@ -141,6 +153,8 @@ CREATE TABLE hstral_prco (
     CONSTRAINT fk_hstral_prco_producto
         FOREIGN KEY (id_producto)
         REFERENCES producto(id_producto)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
 -- =========================================
@@ -161,11 +175,16 @@ CREATE TABLE prcso_pgo (
 
     CONSTRAINT fk_prcso_pgo_pedido
         FOREIGN KEY (id_pedido)
-        REFERENCES pedido(id_pedido),
+        REFERENCES pedido(id_pedido)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+
 
     CONSTRAINT fk_prcso_pgo_metodo
         FOREIGN KEY (id_mtdo_pgo)
         REFERENCES mtdo_pgo(id_mtdo_pgo)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
 );
 
 -- =========================================
@@ -187,11 +206,15 @@ CREATE TABLE jornada (
 
     CONSTRAINT fk_jornada_colaborador
         FOREIGN KEY (id_clbrdor)
-        REFERENCES colaborador(id_clbrdor),
+        REFERENCES colaborador(id_clbrdor)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
 
     CONSTRAINT fk_jornada_turno
         FOREIGN KEY (id_turno)
         REFERENCES turno(id_turno)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
 );
 
 -- =========================================
@@ -209,11 +232,15 @@ CREATE TABLE acto (
 
     CONSTRAINT fk_acto_colaborador
         FOREIGN KEY (id_clbrdor)
-        REFERENCES colaborador(id_clbrdor),
+        REFERENCES colaborador(id_clbrdor)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
 
     CONSTRAINT fk_acto_infraccion
         FOREIGN KEY (id_infraccion)
         REFERENCES infraccion(id_infraccion)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
 );
 
 -- =========================================
@@ -328,11 +355,15 @@ CREATE TABLE colaborador (
 
     CONSTRAINT fk_colaborador_lugar
         FOREIGN KEY (id_lugar)
-        REFERENCES lugar(id_lugar),
+        REFERENCES lugar(id_lugar)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE,
 
     CONSTRAINT fk_colaborador_jefe
         FOREIGN KEY (id_jefe)
         REFERENCES colaborador(id_clbrdor)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
 );
 
 -- =========================================
@@ -349,11 +380,15 @@ CREATE TABLE prdcto_prmcon (
 
     CONSTRAINT fk_prmcon_lote
         FOREIGN KEY (id_lote)
-        REFERENCES lote(id_lote),
+        REFERENCES lote(id_lote)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
 
     CONSTRAINT fk_prmcon_promocion
         FOREIGN KEY (id_promocion)
         REFERENCES promocion(id_promocion)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
 -- =========================================
@@ -406,6 +441,8 @@ CREATE TABLE producto (
     CONSTRAINT fk_producto_categoria
         FOREIGN KEY (id_ctgra)
         REFERENCES categoria(id_ctgra)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
 );
 
 -- =========================================
@@ -421,7 +458,7 @@ CREATE TABLE lote (
     precio_venta NUMERIC(10,2) NOT NULL
         CHECK (
             precio_venta >= 0
-            AND precio_venta <= precio_compra
+            AND precio_venta >= precio_compra
         ),
     fcha_vncmnto DATE NOT NULL
         CHECK (fcha_vncmnto > fcha_ingrso),
@@ -436,15 +473,21 @@ CREATE TABLE lote (
 
     CONSTRAINT fk_lote_proveedor
         FOREIGN KEY (id_proveedor)
-        REFERENCES proveedor(id_proveedor),
+        REFERENCES proveedor(id_proveedor)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE,
 
     CONSTRAINT fk_lote_producto
         FOREIGN KEY (id_producto)
-        REFERENCES producto(id_producto),
+        REFERENCES producto(id_producto)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
     
     CONSTRAINT fk_lote_presentacion
         FOREIGN KEY (id_presentacion)
         REFERENCES presentacion(id_presentacion)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
 );
 
 -- =========================================
@@ -478,5 +521,7 @@ CREATE TABLE inventario (
 
     CONSTRAINT fk_invntro_lote
         FOREIGN KEY (id_lote)
-        REFERENCES lote(id_lote),
+        REFERENCES lote(id_lote)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
