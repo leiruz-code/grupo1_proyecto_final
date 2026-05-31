@@ -64,6 +64,21 @@ VALUES
 	('Accidente por Negligencia', 4, 'Provocar daños materiales o lesiones debido al incumplimiento de protocolos de seguridad.', 'Resolución contractual y acciones legales correspondientes', 15000),
 	('Corrupción o Soborno', 4, 'Ofrecer o entregar beneficios indebidos a personal de la entidad para obtener ventajas contractuales.', 'Inhabilitación permanente como proveedor y denuncia ante las autoridades', 25000);
 
+INSERT INTO acto (id_acto, descripcion, id_clbrdor, id_infraccion)
+VALUES
+	('Presentó reporte mensual con un día de retraso.', 23, 1),
+	('No asistió a una capacitación obligatoria de RRHH.', 24, 10),
+	('Se presentó sin credencial institucional durante una auditoría.', 28, 3),
+	('No entregó documentación administrativa dentro del plazo.', 26, 2),
+	('Registro de asistencia tardío en varias oportunidades.', 31, 1),
+	('Incumplimiento parcial de actividades asignadas en el área.', 8, 4),
+	('Uso inadecuado de material corporativo sin autorización.', 16, 6),
+	('No realizó mantenimiento preventivo de equipos asignados.', 23, 11),
+	('No alcanzó los niveles mínimos de servicio establecidos.', 24, 12),
+	('Observaciones recurrentes sobre calidad del trabajo entregado.', 28, 5),
+	('Vulneración de procedimientos de seguridad informática detectada durante auditoría.', 11, 8),
+	('Presentación de documentación con inconsistencias graves durante proceso interno.', 33, 13);
+
 -- =========================================
 -- TABLA: colaborador
 -- AUTOR: 
