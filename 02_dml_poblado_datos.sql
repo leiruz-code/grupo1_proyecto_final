@@ -126,11 +126,11 @@ RETURNING id_prdcto_prmcon;
 -- =========================================
 INSERT INTO promocion (nmbre_promocon, fecha_inicio, fecha_fin, descuento, cntdad_mnma, descripcion)
 VALUES
-	('Dia de la Madre', '2026-05-01', '2026-05-15', 20.00, 1, '20% de descuento en la seccion de chocolates y regalos.'),
-	('Aniversario', '2026-09-01', '2026-09-30', 10.00, 1, '10% de descuento en toda la tienda por nuestro mes de aniversario.'),
-	('Dia del Padre', '2026-06-10', '2026-06-21', 20.00, 1, '20% de descuento en la seccion de regalos.'),
-	('Remate', '2026-05-29', '2026-05-31', 50.00, 2, '50% de descuento en productos seleccionados.'),
-	('Descuento 3x2', '2026-05-28', '2026-06-30', 100.00, 2, '100% de descuento en el 3er producto y en ciertos productos seleccionados.'),
+	('Dia de la Madre', '2026-05-01', '2026-05-15', 1, '20% de descuento en la seccion de chocolates y regalos.', 20.00),
+	('Aniversario', '2026-09-01', '2026-09-30', 1, '10% de descuento en toda la tienda por nuestro mes de aniversario.', 10.00),
+	('Dia del Padre', '2026-06-10', '2026-06-21', 1, '20% de descuento en la seccion de regalos.', 20.00),
+	('Remate', '2026-05-29', '2026-05-31', 2, '50% de descuento en productos seleccionados.', 50.00),
+	('Descuento 3x2', '2026-05-28', '2026-06-30', 2, '100% de descuento en el 3er producto y en ciertos productos seleccionados.', 100.00),
 	('Fiestas Patrias', '2026-07-20 00:00:00', '2026-07-31 23:59:59', 1, '25% de descuento en productos seleccionados por Fiestas Patrias.', 25.00),
 	('Navidad', '2026-12-01 00:00:00', '2026-12-25 23:59:59', 1, '30% de descuento en chocolates, panetones y regalos navideños.', 30.00),
 	('Black Friday', '2026-11-27 00:00:00', '2026-11-29 23:59:59', 2, '40% de descuento en productos seleccionados durante Black Friday.', 40.00),
