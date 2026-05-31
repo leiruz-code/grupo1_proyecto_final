@@ -135,13 +135,19 @@ RETURNING id_prmcon;
 -- =========================================
 INSERT INTO categoria (nmbre_ctgra, mnmo_edd) 
 VALUES
-	('Bebidas', 32),
-	('Snacks', 54),
-	('Lácteos', 25),
-	('Productos de Limpieza', 18),
-	('Cuidado Personal', 12),
-	('Panadería', 15)
-RETURNING id_ctgra;
+	('Bebidas Gaseosa', 3),
+	('Snacks', 1),
+	('Lácteos', 1),
+	('Productos de Limpieza', 10),
+	('Cuidado Personal', 10),
+	('Panadería', 1),
+	('Bebidas Energizantes', 15),
+	('Carnes y Embutidos', 1),
+	('Productos Congelados', 1),
+	('Útiles del Hogar', 10),
+	('Mascotas', 10),
+	('Bebidas Alcoholicas', 18)
+	('Agua', 1);
 
 -- =========================================
 -- TABLA: proveedor
