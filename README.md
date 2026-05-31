@@ -188,7 +188,7 @@
 <tr>
   <td align="center">`id_pedido`</td>
   <td align="center">`int4`</td>
-  <td align="center">Primary</td>
+  <td align="center"></td>
 </tr>
 
 <tr>
@@ -213,6 +213,12 @@
   <td align="center">`precio_final`</td>
   <td align="center">`numeric`</td>
   <td align="center">Check(>= 0)</td>
+</tr>
+
+<tr>
+  <td align="center">`id_dtlle_pddo`</td>
+  <td align="center">`int4`</td>
+  <td align="center">Primary</td>
 </tr>
 
 </table>
