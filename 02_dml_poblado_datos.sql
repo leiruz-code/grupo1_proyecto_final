@@ -52,7 +52,13 @@ INSERT INTO infraccion (tpo_infrccon, gravedad, descripcion, penalizacion, pnlzc
 ('Calidad', 'Moderada', 'Uso de materiales o insumos de menor calidad a la especificada en el anexo técnico.', 'Sustitución inmediata de materiales y multa', 1200.00),
 ('Confidencialidad', 'Moderada', 'Uso inadecuado de logos o marcas de la empresa sin la autorización expresa del contrato.', 'Suspensión temporal del acceso a las instalaciones', 1500.00),('Ausencia de Servicio', 'Grave', 'Abandono injustificado del servicio o cese de operaciones por más de 24 horas continuas.', 'Rescisión de contrato y ejecución de fianza', 5000.00),
 ('Seguridad', 'Grave', 'Vulneración de datos sensibles por negligencia en el manejo de credenciales compartidas.', 'Auditoría obligatoria externa y penalización máxima', 7500.00),
-('Subcontratación', 'Grave', 'Subcontratar los servicios del objeto del contrato con terceros sin el consentimiento previo.', 'Clasificación de proveedor no elegible y multa', 3500.00) RETURNING id_infrccon;
+('Subcontratación', 'Grave', 'Subcontratar los servicios del objeto del contrato con terceros sin el consentimiento previo.', 'Clasificación de proveedor no elegible y multa', 3500.00),
+('Capacitación', 1, 'No asistir a una capacitación obligatoria programada por la entidad contratante.', 'Amonestación escrita y capacitación complementaria', 100),
+('Mantenimiento', 2, 'No realizar el mantenimiento preventivo programado de los equipos dentro del plazo establecido.', 'Multa y reprogramación obligatoria del mantenimiento', 1800),
+('Incumplimiento de SLA', 2, 'No alcanzar los niveles mínimos de servicio acordados durante un período de evaluación.', 'Descuento del 10% de la facturación mensual', 2200),
+('Fraude Documentario', 3, 'Presentar documentación alterada o información falsa durante la ejecución contractual.', 'Suspensión inmediata del contrato y multa', 9000),
+('Accidente por Negligencia', 4, 'Provocar daños materiales o lesiones debido al incumplimiento de protocolos de seguridad.', 'Resolución contractual y acciones legales correspondientes', 15000),
+('Corrupción o Soborno', 4, 'Ofrecer o entregar beneficios indebidos a personal de la entidad para obtener ventajas contractuales.', 'Inhabilitación permanente como proveedor y denuncia ante las autoridades', 25000);
 
 -- =========================================
 -- TABLA: cliente
