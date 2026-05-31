@@ -108,17 +108,26 @@ RETURNING id_cliente;
 -- =========================================
 INSERT INTO prdcto_prmcon (id_prdcto, id_lote, id_prmcon)
 VALUES
-	(1, 1, 1), -- Producto 1 (Chocolates) del Lote 1 en Promoción 1 (Día de la Madre)
-	(2, 1, 1), -- Producto 2 (Regalos) del Lote 1 en Promoción 1 (Día de la Madre)
-	(3, 2, 2), -- Producto 3 (Snacks) del Lote 2 en Promoción 2 (Aniversario)
-	(4, 3, 2), -- Producto 4 (Lácteos) del Lote 3 en Promoción 2 (Aniversario)
-	(5, 4, 3), -- Producto 5 (Cuidado Personal) del Lote 4 en Promoción 3 (Día del Padre)
-	(1, 2, 4), -- Producto 1 (Chocolates) del Lote 2 en Promoción 4 (Remate)
-	(3, 2, 4), -- Producto 3 (Snacks) del Lote 2 en Promoción 4 (Remate)
-	(6, 5, 5), -- Producto 6 (Panadería) del Lote 5 en Promoción 5 (Descuento 3x2)
-	(4, 3, 5), -- Producto 4 (Lácteos) del Lote 3 en Promoción 5 (Descuento 3x2)
-	(2, 6, 2)  -- Producto 2 (Regalos) del Lote 6 en Promoción 2 (Aniversario)
-RETURNING id_prdcto_prmcon;
+	(1, 1, 1),
+	(2, 2, 1),
+	(3, 5, 1),
+	(4, 6, 3),
+	(5, 7, 3),
+	(6, 10, 3),
+	(7, 3, 4),
+	(8, 8, 4),
+	(9, 13, 4),
+	(10, 18, 4),
+	(11, 4, 5),
+	(12, 9, 5),
+	(13, 14, 5),
+	(14, 19, 5),
+	(15, 24, 5),
+	(16, 11, 2),
+	(17, 12, 2),
+	(18, 15, 2),
+	(19, 20, 2),
+	(20, 25, 2);
 
 -- =========================================
 -- TABLA: promocion
