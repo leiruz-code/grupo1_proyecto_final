@@ -88,9 +88,10 @@ CREATE TABLE mtdo_pgo (
     id_mtdo_pgo     SERIAL,
     nmbre_mtdo_pgo  VARCHAR(50) NOT NULL,
     entidad         VARCHAR(100),
-    prcntje_cmson   INT NOT NULL CHECK (prcntje_cmson BETWEEN 1 AND 100),
+    prcntje_cmson   INT NOT NULL CHECK (prcntje_cmson BETWEEN 0 AND 100),
     CONSTRAINT pk_mtdo_pgo PRIMARY KEY (id_mtdo_pgo)
 );
+
 
 -- =========================================
 -- TABLA: promocion
@@ -100,11 +101,12 @@ CREATE TABLE promocion (
     nmbre_prmcon    VARCHAR(100) NOT NULL,
     fcha_inco       TIMESTAMP NOT NULL,
     fcha_fin        TIMESTAMP NOT NULL CHECK (fcha_fin > fcha_inco),
-    descuento       NUMERIC(5,2) NOT NULL CHECK (descuento >= 0),
+    descuento       NUMERIC(5,2) NOT NULL CHECK (descuento BETWEEN 0 AND 100),
     cntdad_mnma     INT NOT NULL CHECK (cntdad_mnma > 0),
     descripcion     TEXT,
     CONSTRAINT pk_promocion PRIMARY KEY (id_promocion)
 );
+
 
 -- =========================================
 -- TABLA: colaborador
@@ -271,7 +273,7 @@ CREATE TABLE pedido (
         ON DELETE RESTRICT
         ON UPDATE CASCADE,
 
-    -- Si se elimina el colaborador, dejar el campo en NULL
+    -- Si se elimina el colaborador, bloquear (preserva historial de ventas)
     CONSTRAINT fk_pedido_colaborador
         FOREIGN KEY (id_clbrdor)
         REFERENCES colaborador(id_clbrdor)
