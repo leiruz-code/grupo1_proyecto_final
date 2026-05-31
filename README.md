@@ -447,18 +447,6 @@
   <td align="center">Unique</td>
 </tr>
 
-<tr>
-  <td align="center">`id_producto`</td>
-  <td align="center">`int4`</td>
-  <td align="center"></td>
-</tr>
-
-<tr>
-  <td align="center">`id_presentacion`</td>
-  <td align="center">`int4`</td>
-  <td align="center"></td>
-</tr>
-
 </table>
 
 
@@ -552,7 +540,7 @@
 <tr>
   <td align="center">`prcntje_cmson`</td>
   <td align="center">`int4`</td>
-  <td align="center">Check(BEETWEN 1 AND 100)</td>
+  <td align="center">Check(BEETWEN 0 AND 100)</td>
 </tr>
 
 </table>
@@ -633,12 +621,6 @@
 
 <tr>
   <td align="center">`id_merma`</td>
-  <td align="center">`int4`</td>
-  <td align="center"></td>
-</tr>
-
-<tr>
-  <td align="center">`id_producto`</td>
   <td align="center">`int4`</td>
   <td align="center"></td>
 </tr>
@@ -982,12 +964,6 @@
 </tr>
 
 <tr>
-  <td align="center">`descuento`</td>
-  <td align="center">`numeric`</td>
-  <td align="center">Check(>= 0)</td>
-</tr>
-
-<tr>
   <td align="center">`cntdad_mnma`</td>
   <td align="center">`int4`</td>
   <td align="center">Check(> 0)</td>
@@ -997,6 +973,12 @@
   <td align="center">`descripcion`</td>
   <td align="center">`text`</td>
   <td align="center">Nullable</td>
+</tr>
+
+<tr>
+  <td align="center">`dscnto_max`</td>
+  <td align="center">`numeric`</td>
+  <td align="center">Check(>= 0)</td>
 </tr>
 
 </table>
@@ -1023,12 +1005,6 @@
   <td align="center">`id_prdcto_prmcon`</td>
   <td align="center">`int4`</td>
   <td align="center">Primary</td>
-</tr>
-
-<tr>
-  <td align="center">`id_producto`</td>
-  <td align="center">`int4`</td>
-  <td align="center"></td>
 </tr>
 
 <tr>
@@ -1139,6 +1115,18 @@
 
 <tr>
   <td align="center">`id_proveedor`</td>
+  <td align="center">`int4`</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">`id_producto`</td>
+  <td align="center">`int4`</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">`id_presentacion`</td>
   <td align="center">`int4`</td>
   <td align="center"></td>
 </tr>
