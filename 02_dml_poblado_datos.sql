@@ -130,8 +130,17 @@ VALUES
 	('Aniversario', '2026-09-01', '2026-09-30', 10.00, 1, '10% de descuento en toda la tienda por nuestro mes de aniversario.'),
 	('Dia del Padre', '2026-06-10', '2026-06-21', 20.00, 1, '20% de descuento en la seccion de regalos.'),
 	('Remate', '2026-05-29', '2026-05-31', 50.00, 2, '50% de descuento en productos seleccionados.'),
-	('Descuento 3x2', '2026-05-28', '2026-06-30', 100.00, 2, '100% de descuento en el 3er producto y en ciertos productos seleccionados.')
-RETURNING id_prmcon;
+	('Descuento 3x2', '2026-05-28', '2026-06-30', 100.00, 2, '100% de descuento en el 3er producto y en ciertos productos seleccionados.'),
+	('Fiestas Patrias', '2026-07-20 00:00:00', '2026-07-31 23:59:59', 1, '25% de descuento en productos seleccionados por Fiestas Patrias.', 25.00),
+	('Navidad', '2026-12-01 00:00:00', '2026-12-25 23:59:59', 1, '30% de descuento en chocolates, panetones y regalos navideños.', 30.00),
+	('Black Friday', '2026-11-27 00:00:00', '2026-11-29 23:59:59', 2, '40% de descuento en productos seleccionados durante Black Friday.', 40.00),
+	('Cyber Days', '2026-04-15 00:00:00', '2026-04-20 23:59:59', 1, '35% de descuento en compras realizadas por la web.', 35.00),
+	('Vuelta al Colegio', '2026-02-15 00:00:00', '2026-03-15 23:59:59', 3, '15% de descuento en útiles escolares y productos educativos.', 15.00),
+	('San Valentín', '2026-02-01 00:00:00', '2026-02-14 23:59:59', 1, '20% de descuento en chocolates, flores y regalos para parejas.', 20.00),
+	('Semana Santa', '2026-03-25 00:00:00', '2026-04-05 23:59:59', 2, '18% de descuento en productos seleccionados durante Semana Santa.', 18.00),
+	('Cliente Frecuente', '2026-01-01 00:00:00', '2026-12-31 23:59:59', 5, '12% de descuento para clientes que compren 5 o más productos.', 12.00),
+	('Fin de Temporada', '2026-08-15 00:00:00', '2026-08-31 23:59:59', 2, '45% de descuento en productos de temporada.', 45.00),
+	('Combo Familiar', '2026-06-01 00:00:00', '2026-06-30 23:59:59', 4, '30% de descuento en compras de 4 o más productos participantes.', 30.00);
 
 -- =========================================
 -- TABLA: mtdo_pgo
