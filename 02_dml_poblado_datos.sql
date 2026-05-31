@@ -15,7 +15,18 @@ INSERT INTO lugar (distrito, provincia, region) VALUES
 ('Chiclayo', 'Chiclayo', 'Lambayeque'),
 ('Piura', 'Piura', 'Piura'),
 ('Huancayo', 'Huancayo', 'Junín')
-  RETURNING id_lugar;
+('San Isidro', 'Lima', 'Lima'),
+('La Molina', 'Lima', 'Lima'),
+('Cayma', 'Arequipa', 'Arequipa'),
+('José Luis Bustamante y Rivero', 'Arequipa', 'Arequipa'),
+('San Sebastián', 'Cusco', 'Cusco'),
+('San Jerónimo', 'Cusco', 'Cusco'),
+('Victor Larco Herrera', 'Trujillo', 'La Libertad'),
+('Pimentel', 'Chiclayo', 'Lambayeque'),
+('Castilla', 'Piura', 'Piura'),
+('El Tambo', 'Huancayo', 'Junín')
+('Miraflores', 'Arequipa', 'Arequipa'),
+('Cerro Colorado', 'Arequipa', 'Arequipa');
 
 -- =========================================
 -- TABLA: turno
