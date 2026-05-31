@@ -65,6 +65,46 @@ VALUES
 	('Corrupción o Soborno', 4, 'Ofrecer o entregar beneficios indebidos a personal de la entidad para obtener ventajas contractuales.', 'Inhabilitación permanente como proveedor y denuncia ante las autoridades', 25000);
 
 -- =========================================
+-- TABLA: colaborador
+-- AUTOR: 
+-- =========================================
+INSERT INTO colaborador (id_clbrdor, dni, nombres, aplldo_ptrno, aplldo_mtrno, crro_elctrnco, telefono, fcha_ncmnto, fcha_cntrtcon, fecha_clmncon, bono, sueldo, observacion, direccion, fcha_ingrso, prdo_cntrto, estado, id_lugar, id_jefe)
+VALUES
+	('74859621', 'Carlos Alberto', 'Quispe', 'Mamani', 'carlos.quispe@empresa.com', '987654321', '1995-04-15', '2023-01-10', NULL, 350.00, 2800.00, 'Buen desempeño en ventas', 'Av. Los Incas 123', '2023-01-10', '12 meses', TRUE, 1, 2),
+	('71234567', 'María Fernanda', 'Lopez', 'Gomez', 'maria.lopez@empresa.com', '965874123', '1998-09-20', '2022-08-01', NULL, 500.00, 3200.00, NULL, 'Jr. Primavera 456', '2022-08-01', 'Indefinido', TRUE, 2, NULL),
+	('73456789', 'José Luis', 'Condori', 'Huaman', 'jose.condori@empresa.com', '954123789', '1992-12-11', '2021-05-15', NULL, NULL, 2500.00, 'Área logística', 'Calle Arequipa 789', '2021-05-15', '24 meses', TRUE, 3, 2),
+	('75678912', 'Ana Cecilia', 'Torres', 'Vargas', 'ana.torres@empresa.com', '978456123', '1997-06-08', '2020-11-03','2024-03-01', 200.00, 3000.00, 'Contrato culminado', 'Av. Sol 321', '2020-11-03', '36 meses', FALSE, 4, NULL),
+	('76981234', 'Luis Enrique', 'Ramirez', 'Castillo', 'luis.ramirez@empresa.com', '912345678', '1990-01-25', '2019-07-20', NULL, 450.00, 4000.00, 'Supervisor de operaciones', 'Mz B Lt 5 Urb. Centro', '2019-07-20', 'Indefinido', TRUE, 5, NULL),
+	('78123456', 'Patricia Elena', 'Flores', 'Diaz', 'patricia.flores@empresa.com', '934567812', '1996-03-18', '2023-02-14', NULL, NULL, 2700.00, NULL, 'Av. Grau 741', '2023-02-14', '18 meses', TRUE, 6, 5),
+	('79345678', 'Miguel Ángel', 'Rojas', 'Paredes', 'miguel.rojas@empresa.com', '945678123', '1993-10-30', '2022-06-12', NULL, 300.00, 3100.00, 'Encargado de almacén', 'Jr. Libertad 852', '2022-06-12', '12 meses', TRUE, 7, 5),
+	('70456789', 'Daniela Sofía', 'Mendoza', 'Salas', 'daniela.mendoza@empresa.com', '956789234', '1999-07-14', '2024-01-05', NULL, 150.00, 2400.00, 'Nueva incorporación', 'Psje. San Martín 963', '2024-01-05', '6 meses', TRUE, 8, 5),
+	('71549823', 'Ricardo Manuel', 'Pinto', 'Alvarez', 'ricardo.pinto@empresa.com', '961258347', '1991-02-17', '2021-09-10', NULL, 420.00, 3500.00, 'Analista financiero', 'Av. Central 145', '2021-09-10', '24 meses', TRUE, 2, 5),
+	('72837465', 'Lucía Andrea', 'Navarro', 'Cruz', 'lucia.navarro@empresa.com', '973654821', '1994-11-05','2020-04-22', NULL, NULL, 2900.00, 'Área administrativa', 'Jr. Unión 258','2020-04-22', 'Indefinido', TRUE, 4, NULL),
+	('73928164', 'Fernando Javier', 'Salazar', 'Reyes', 'fernando.salazar@empresa.com', '984512367', '1989-08-29', '2018-12-03', '2023-11-15', 250.00, 4100.00, 'Renuncia voluntaria', 'Calle Los Pinos 963', '2018-12-03', '48 meses', FALSE, 1, NULL),
+	('74159628', 'Katherine Milagros', 'Vega', 'Ortega', 'katherine.vega@empresa.com', '952147836', '1997-05-12', '2023-07-01', NULL, 180.00, 2600.00, 'Asistente de recursos humanos', 'Av. Ejército 741', '2023-07-01', '12 meses',TRUE, 3, 10),
+	('75286319', 'Bruno Sebastián', 'Carrasco', 'Delgado', 'bruno.carrasco@empresa.com', '968741253', '1993-01-09', '2022-03-18', NULL, 520.00, 3800.00, 'Coordinador de proyectos', 'Urb. Santa Rosa Mz C Lt 8', '2022-03-18', '36 meses', TRUE, 6, 10),
+	('76451238', 'Andrea Milena', 'Cordero', 'Pacheco', 'andrea.cordero@empresa.com',' 951236874', '1995-10-03', '2021-06-14', NULL, 275.00, 3150.00, 'Especialista en marketing', 'Av. La Marina 225', '2021-06-14','24 meses', TRUE, 5, 15),
+	('77634125', 'Jorge Antonio', 'Valdivia', 'Nuñez', 'jorge.valdivia@empresa.com', '962514738', '1988-07-19', '2017-09-01', NULL, 650.00, 4800.00, 'Jefe de sistemas', 'Calle Comercio 874', '2017-09-01', 'Indefinido', TRUE, 1, NULL),
+	('78745216', 'Camila Fernanda', 'Espinoza', 'Mejia', 'camila.espinoza@empresa.com', '974185263', '2000-04-27', '2024-02-10', NULL, NULL, 2200.00, 'Practicante profesional','Psje. Las Flores 632', '2024-02-10', '6 meses', TRUE, 7, 15),
+	('79856341', 'Pedro Luis', 'Aguilar', 'Soto', 'pedro.aguilar@empresa.com', '985623147', '1992-12-08', '2020-01-20', '2025-01-31', 300.00, 3400.00, 'Fin de contrato', 'Av. América 159', '2020-01-20', '60 meses', FALSE, 8, NULL),
+	('70987412', 'Valeria Noemí', 'Huerta', 'Campos', 'valeria.huerta@empresa.com', '996325874', '1996-09-14', '2022-10-05', NULL, 210.00, 2950.00, 'Responsable de atención al cliente', 'Jr. Ayacucho 753', '2022-10-05', '18 meses', TRUE, 2, 15),
+	('70124589', 'Roberto Miguel', 'Castañeda', 'Loayza', 'roberto.castaneda@empresa.com', '912458963', '1985-02-14', '2015-03-01', NULL, 850.00, 6500.00, 'Gerente general corporativo', 'Av. Principal 100', '2015-03-01', 'Indefinido', TRUE, 1, NULL),
+	('71478523', 'Silvia Maribel', 'Paredes', 'Rojas', 'silvia.paredes@empresa.com', '934785612', '1989-06-21', '2018-08-15', NULL, 600.00, 5200.00, 'Jefa de recursos humanos', 'Jr. Las Palmeras 450', '2018-08-15', 'Indefinido', TRUE, 2, 19),
+	('72589634', 'Héctor Raúl', 'Medina', 'Salazar', 'hector.medina@empresa.com', '956321478', '1987-09-11', '2017-05-10', NULL, 720.00, 5600.00, 'Jefe financiero', 'Av. Los Laureles 321','2017-05-10', 'Indefinido', TRUE, 3, 19),
+	('73691258', 'Paola Cristina', 'Benites', 'Flores', 'paola.benites@empresa.com', '978452136', '1991-12-03', '2019-01-20', NULL, 550.00, 5000.00, 'Jefa comercial', 'Calle Mercaderes 210', '2019-01-20', 'Indefinido', TRUE, 4, 19),
+	('74785691', 'Diego Alonso', 'Vilca', 'Quispe', 'diego.vilca@empresa.com', '987456123', '1996-07-08', '2022-04-04', NULL, 180.00, 2800.00, 'Asistente de selección', 'Av. Dolores 741', '2022-04-04', '12 meses', TRUE, 2, 20),
+	('75896314', 'Natalia Fernanda', 'Arias', 'Cruz', 'natalia.arias@empresa.com', '965874321', '1998-11-17', '2023-03-15', NULL, 120.00, 2500.00, 'Analista junior RRHH', 'Psje. Lima 963', '2023-03-15', '18 meses', TRUE, 2, 20),
+	('76932145', 'Eduardo Javier', 'Zevallos', 'Mamani', 'eduardo.zevallos@empresa.com', '954789321', '1993-05-24', '2021-07-12', NULL, 300.00, 3400.00, 'Contador corporativo', 'Jr. Tacna 852', '2021-07-12', '24 meses', TRUE, 3, 21),
+	('77124563', 'Lucero Milagros', 'Valencia', 'Torres', 'lucero.valencia@empresa.com', '943216578', '1997-08-19', '2022-09-01', NULL, 220.00, 2950.00, 'Asistente contable', 'Av. Independencia 741', '2022-09-01', '12 meses', TRUE, 3, 25),
+	('78236514', 'Renato César', 'Portugal', 'Linares', 'renato.portugal@empresa.com', '932145678',' 1994-03-28', '2020-02-14', NULL, 450.00, 3600.00, 'Supervisor de ventas', 'Av. Ejército 357', '2020-02-14', '24 meses', TRUE, 4, 22),
+	('79321456', 'Fiorella Andrea', 'Mendoza', 'Puma', 'fiorella.mendoza@empresa.com', '921456783', '1999-01-10', '2024-01-22', NULL, 100.00, 2300.00, 'Ejecutiva comercial junior', 'Jr. Ayacucho 456', '2024-01-22', '6 meses', TRUE, 4, 27),
+	('70478512', 'Alonso Martín', 'Gallegos', 'Nuñez', 'alonso.gallegos@empresa.com', '944785236', '1986-10-30', '2016-06-06', NULL, 780.00, 5900.00, 'Director de operaciones', 'Av. Metropolitana 951', '2016-06-06', 'Indefinido', TRUE, 5, 19),
+	('71563248', 'Carmen Rosa', 'Sotelo', 'Velarde', 'carmen.sotelo@empresa.com', '955632147', '1990-04-18', '2019-09-09', NULL, 500.00, 4200.00, 'Coordinadora logística', 'Urbanización El Sol 753', '2019-09-09', '36 meses', TRUE, 5, 29),
+	('72654198', 'Iván Felipe', 'Cáceres', 'Mora', 'ivan.caceres@empresa.com', '966541287', '1995-12-22', '2021-11-11', NULL, 250.00, 3100.00, 'Analista de distribución', 'Av. Perú 654', '2021-11-11', '24 meses', TRUE, 5, 30),
+	('73789415', 'Melissa Karina', 'Rivera', 'Del Carpio', 'melissa.rivera@empresa.com', '977894152', '1992-06-15', '2020-01-10','2024-12-31',200.00,3000.00, 'Fin de contrato', 'Calle San José 741','2020-01-10', '48 meses', FALSE, 6, 20),
+	('74821596', 'Oscar Daniel', 'Maldonado', 'Herrera', 'oscar.maldonado@empresa.com', '988215963', '1988-09-05', '2018-04-01','2025-02-15',350.00,4100.00, 'Renuncia voluntaria', 'Av. Kennedy 159','2018-04-01', '60 meses', FALSE, 1, 21);
+
+-- =========================================
 -- TABLA: cliente
 -- AUTOR: Zuriel Cangre
 -- =========================================
