@@ -233,7 +233,7 @@ VALUES
 	(73948102, 'Sofia', 'Campos', 'Villanueva', 'sofia.campos@gmail.com', 967890123, '2026-05-25', 3),
 	(41029384, 'Diego', 'Aguilar', 'Paredes', 'daguilar@gmail.com', 989012345, '2025-10-05', 11),
 	(12938475, 'Camila', 'Morales', 'Herrera', 'camila_morales@hotmail.com', 911223344, '2026-04-18', 7),
-	(48273619, 'Gabriel', 'Fuentes', 'Salazar', 'gabu.fuentes@gmail.com', 922334455, '2026-02-11', 0),
+	(48273619, 'Gabriel', 'Fuentes', 'Salazar', 'gabu.fuentes@gmail.com', 922334455, '2026-02-11', 1),
 	(74918230, 'Valeria', 'Paredes', 'Guerrero', 'valeparedes@gmail.com', 933445566, '2025-12-25', 9),
 	(40591827, 'Andres', 'Soto', 'Miranda', 'andres_soto@outlook.com', 944556677, '2026-01-30', 14),
 	(71928304, 'Claudia', 'Tapia', 'Vega', 'clau.tapia@gmail.com', 955667788, '2026-05-02', 5),
@@ -244,9 +244,17 @@ VALUES
 	(12345678, 'Mateo', 'Delgado', 'Cabrera', 'mateo.delgado@gmail.com', 912398475, '2026-02-05', 4),
 	(87654321, 'Rosa', 'Salas', 'Montoya', 'rosasalas@hotmail.com', 934857123, '2026-05-15', 2),
 	(23456789, 'Alejandro', 'Zeballos', 'Pari', 'azeballos@gmail.com', 956284713, '2025-11-20', 13),
-	(98765432, 'Gabriela', 'Ticona', 'Mamani', 'gabriela_ticona@gmail.com', 978135246, '2026-01-08', 8)
-ON CONFLICT (crro_elctrnco) DO NOTHING
-RETURNING id_cliente;
+	(98765432, 'Gabriela', 'Ticona', 'Mamani', 'gabriela_ticona@gmail.com', 978135246, '2026-01-08', 8),
+	(56473829, 'Kevin', 'Arce', 'Valdez', 'kevin.arce@gmail.com', 987321654, '2026-03-18', 5),
+	(84736251, 'Patricia', 'Luna', 'Flores', 'patricia.luna@hotmail.com', 954321678, '2025-10-27', 9),
+	(31579248, 'Martin', 'Cruz', 'Apaza', 'martin.cruz@gmail.com', 978654321, '2026-04-30', 2),
+	(68245197, 'Natalia', 'Peralta', 'Rojas', 'natalia.peralta@outlook.com', 943216587, '2026-01-11', 7),
+	(47382915, 'Erick', 'Condori', 'Mendoza', 'erick.condori@gmail.com', 965874213, '2025-08-03', 16),
+	(91827364, 'Tatiana', 'Vilca', 'Torres', 'tatiana.vilca@hotmail.com', 932165478, '2026-05-06', 1),
+	(35628194, 'Christian', 'Loayza', 'Puma', 'christian.loayza@gmail.com', 956741238, '2026-02-16', 4),
+	(74581923, 'Marisol', 'Nina', 'Calle', 'marisol.nina@outlook.com', 989741256, '2025-12-08', 11),
+	(28194736, 'Hugo', 'Mamani', 'Quispe', 'hugo.mamani@gmail.com', 944785632, '2026-03-09', 6),
+	(63728195, 'Karen', 'Yucra', 'Soto', 'karen.yucra@hotmail.com', 977412365, '2026-05-19', 0);
 
 -- =========================================
 -- TABLA: prdcto_prmcon
