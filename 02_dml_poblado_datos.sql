@@ -263,6 +263,43 @@ VALUES
 	(175, 5.90, 8.90, '2028-05-31', '2026-10-15', 5, 30, 3);
 
 -- =========================================
+-- TABLA: inventario
+-- AUTOR: Jose Bernedo
+-- =========================================
+INSERT INTO inventario (id_invntro, cantidad, observacion, id_lote)
+VALUES
+	(95, 'Stock disponible luego de ventas por promoción Día de la Madre.', 1),
+	(72, 'Inventario actualizado tras ventas regulares.', 2),
+	(140, 'Stock disponible para campaña de remate.', 3),
+	(55, 'Algunas unidades reservadas para pedidos especiales.', 4),
+	(110, 'Inventario afectado por promoción de chocolates y regalos.', 5),
+	(185, 'Stock suficiente para la campaña Día del Padre.', 6),
+	(80, 'Productos con alta rotación durante el mes.', 7),
+	(62, 'Existencias reducidas por promoción 3x2.', 8),
+	(98, 'Inventario revisado y validado.', 9),
+	(165, 'Stock disponible para ventas de temporada.', 10),
+	(120, 'Existencias actualizadas tras conteo físico.', 11),
+	(88, 'Parte del lote reservado para ventas online.', 12),
+	(200, 'Stock alto para futuras promociones.', 13),
+	(58, 'Inventario reducido por alta demanda.', 14),
+	(135, 'Productos disponibles para campaña de aniversario.', 15),
+	(150, 'Stock disponible para promociones de temporada.', 16),
+	(76, 'Inventario actualizado después de ventas semanales.', 17),
+	(230, 'Existencias suficientes para atender la demanda proyectada.', 18),
+	(92, 'Productos disponibles para venta inmediata.', 19),
+	(160, 'Stock revisado durante auditoría interna.', 20),
+	(118, 'Inventario afectado por ventas de campaña promocional.', 21),
+	(84, 'Existencias reservadas para clientes frecuentes.', 22),
+	(195, 'Stock disponible para reposición en tienda.', 23),
+	(57, 'Inventario reducido por ventas de productos premium.', 24),
+	(142, 'Productos disponibles para promoción especial.', 25),
+	(168, 'Stock actualizado tras ingreso de mercancía.', 26),
+	(101, 'Existencias disponibles para ventas online y físicas.', 27),
+	(225, 'Inventario con alta disponibilidad para próximas campañas.', 28),
+	(87, 'Stock reducido por alta rotación del producto.', 29),
+	(163, 'Inventario validado y listo para comercialización.', 30);
+
+-- =========================================
 -- TABLA: pedido
 -- AUTOR: Zuriel Cangre
 -- =========================================
