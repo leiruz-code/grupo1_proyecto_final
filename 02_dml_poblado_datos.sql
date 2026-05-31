@@ -345,14 +345,33 @@ RETURNING id_pedido;
 -- TABLA: merma
 -- AUTOR: Zuriel Cangre
 -- =========================================
-INSERT INTO merma (nmbre_mrma, descripcion) VALUES
-('Producto Vencido', 'Lácteos con fecha de caducidad superada en el estante de exhibición.'),
-('Rotura por Manipulación', 'Botella de vidrio de refresco rota debido a una caída durante el reabastecimiento.'),
-('Empaque Dañado', 'Caja de cereal aplastada en el almacén que dejó expuesto el producto interior.'),
-('Falla de Cadena de Frío', 'Deterioro de embutidos por corte de energía temporal en la vitrina refrigerada.'),
-('Producto Vencido', 'Paquetes de pan de molde que presentaron de forma prematura hongos.'),
-('Deterioro de Fábrica', 'Latas de conserva abolladas detectadas al momento de recepcionar el lote.')
-RETURNING id_merma; 
+INSERT INTO merma (nmbre_mrma, descripcion)
+VALUES
+	('Producto Vencido', 'Fecha de caducidad superada en el estante de exhibición.'),
+	('Rotura por Manipulación', 'Envase roto debido a una caída durante el reabastecimiento.'),
+	('Empaque Dañado', 'Enpaque aplastada/roto a causa desconocida en el almacén que dejó expuesto el producto interior.'),
+	('Falla de Cadena de Frío', 'Deterioro de producto por corte de energía temporal en la vitrina refrigerada.'),
+	('Deterioro de Fábrica', 'Latas/envases abolladas detectadas al momento de recepcionar el lote.'),
+	('Contaminación del Producto', 'Producto afectado por derrame de sustancias externas que comprometen su consumo.'),
+	('Daño por Humedad', 'Producto deteriorado debido a exposición prolongada a humedad en almacén.'),
+	('Infestación de Plagas', 'Presencia de insectos o roedores que contaminaron el producto almacenado.'),
+	('Error de Etiquetado', 'Producto con etiqueta incorrecta o ilegible que impide su comercialización.'),
+	('Sellado Defectuoso', 'Envase con cierre defectuoso que compromete la conservación del contenido.'),
+	('Oxidación del Producto', 'Alteración física o química del producto debido a exposición al aire.'),
+	('Derrame de Contenido', 'Pérdida parcial o total del contenido por fuga en el envase.'),
+	('Daño por Transporte Interno', 'Producto afectado durante el traslado entre áreas del establecimiento.'),
+	('Exposición Solar', 'Deterioro causado por exposición prolongada a luz solar directa.'),
+	('Producto Deformado', 'Alteración de la forma original del producto que afecta su presentación comercial.'),
+	('Error de Almacenamiento', 'Producto almacenado en condiciones no adecuadas según especificaciones del fabricante.'),
+	('Presencia de Moho', 'Desarrollo de hongos visibles que hacen inviable la venta del producto.'),
+	('Lote Retirado del Mercado', 'Producto retirado por disposición del fabricante o autoridad sanitaria.'),
+	('Daño por Congelamiento', 'Producto afectado por temperaturas inferiores a las recomendadas.'),
+	('Mezcla Accidental de Productos', 'Producto contaminado por contacto con otros productos incompatibles.'),
+	('Manipulación Inadecuada del Cliente', 'Daño ocasionado por clientes durante la exhibición o selección del producto.'),
+	('Golpe en Estantería', 'Producto dañado por impacto contra mobiliario de almacenamiento o exhibición.'),
+	('Pérdida de Calidad Organoléptica', 'Cambio de color, olor o textura que afecta la calidad percibida del producto.'),
+	('Fuga de Refrigerante', 'Producto afectado por incidente relacionado con equipos de refrigeración.'),
+	('Recepción en Mal Estado', 'Producto recibido con defectos visibles que impiden su comercialización.');
 
 -- ======================================================
 -- 						--- UPDATE ---
