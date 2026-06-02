@@ -3,18 +3,18 @@
 <table align="center" cellpadding="12">
 <tr>         
   <td align="center" width="350">
-  Bernedo Coya Jose Daniel
+  Bernedo Coya Jose Daniel (JosDan412)
   </td>
   <td align="center" width="350">
-  Cangre Ure Zuriel Alberto
+  Cangre Ure Zuriel Alberto (leiruz-code)
   </td>
 </tr>
 <tr>
   <td align="center" width="350">
-  Valenzuela Lazarte Brysett Magely
+  Valenzuela Lazarte Brysett Magely (Mage-Brycode)
   </td>
   <td align="center" width="350">
-  Huaroc Vargas Betzabe Delia
+  Huaroc Vargas Betzabe Delia (BetzabeDHV)
   </td>
 </tr>
 </table>
