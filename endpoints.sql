@@ -42,4 +42,4 @@ BEGIN
     INSERT INTO prcso_pgo (comision, ingrso_nto, id_pedido, id_mtdo_pgo)
     VALUES (0.00, 55.50, v_id_pedido, 1);
 
-
+END $$;
