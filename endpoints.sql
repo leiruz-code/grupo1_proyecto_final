@@ -50,6 +50,15 @@ antes de aplicar el UPDATE a producto, todo en una sola transacción atómica.*/
 
 -- Sincronización preventiva del contador automático
 SELECT setval('hstral_prco_id_hstral_prco_seq', (SELECT MAX(id_hstral_prco) FROM hstral_prco));
+-- Bloque de ejecución transaccional
+DO $$
+DECLARE
+    v_id_producto INT := 1; --id_producto         
+    v_precio_nvo NUMERIC(10,2) := 18.50; --nuevo precio
+BEGIN
+
+
+    INSERT INTO hstral_prco (fcha_cmbo, prco_antror, prco_nvo, id_producto)
 
 
 
