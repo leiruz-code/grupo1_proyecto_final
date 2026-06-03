@@ -25,3 +25,17 @@ GROUP BY
     c.aplldo_ptrno
 HAVING COUNT(p.id_pedido) >= 3
 ORDER BY monto_total_ventas DESC;
+
+------------------------------------------------------------------------------------------------
+--Productos con merma — usa LEFT JOIN para no excluir productos sin ventas/merma, 
+--COALESCE para tratar los NULL como cero, y HAVING sobre la merma acumulada. 
+
+WITH ventas_consolidadas AS (
+    -- Consolidamos las unidades vendidas por cada producto
+    SELECT 
+        id_producto, 
+        SUM(unidades) AS total_vendido
+    FROM dtlle_pddo
+    GROUP BY id_producto
+),
+
