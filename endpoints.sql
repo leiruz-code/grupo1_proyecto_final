@@ -67,6 +67,11 @@ BEGIN
         id_producto
     FROM producto
     WHERE id_producto = v_id_producto;
+ -- 2. Actualizar el precio actual en la entidad producto
+    
+    UPDATE producto
+    SET precio_actual = v_precio_nvo
+    WHERE id_producto = v_id_producto;
 
 END $$;
 
