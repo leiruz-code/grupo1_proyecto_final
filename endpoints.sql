@@ -88,13 +88,24 @@ DECLARE
     v_cantidad_merma INT := 5;    -- Cantidad de unidades a retirar por merma
 BEGIN
 
-    -- 1. Registrar el detalle de la merma (Estructura alineada al DDL de su repositorio)
+-- Registrar el detalle de la merma (Estructura alineada al DDL de su repositorio)
     INSERT INTO dtlle_mrma (cantidad, descripcion, id_merma, id_lote)
     VALUES (v_cantidad_merma, 'Chocolates vencidos retirados del anaquel.', v_id_merma, v_id_lote);
--- 2. Descontar del inventario las unidades del lote afectado
+-- Descontar del inventario las unidades del lote afectado
     UPDATE inventario
     SET cantidad = cantidad - v_cantidad_merma
     WHERE id_lote = v_id_lote;
+-- Validación de seguridad activa
+    IF EXISTS (
+        SELECT 1 FROM inventario
+        WHERE id_lote = v_id_lote AND cantidad < 0
+    ) THEN
+        RAISE EXCEPTION 'Stock insuficiente para registrar la merma en el lote %.', v_id_lote;
+    END IF;
+
+    -- Al cerrar el bloque sin excepciones
+END $$;
+
 
 
 
