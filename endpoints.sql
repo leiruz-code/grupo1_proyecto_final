@@ -57,9 +57,17 @@ DECLARE
     v_precio_nvo NUMERIC(10,2) := 18.50; --nuevo precio
 BEGIN
 
-
+-- 1. Registrar el precio anterior
     INSERT INTO hstral_prco (fcha_cmbo, prco_antror, prco_nvo, id_producto)
 
+    SELECT
+        (NOW() AT TIME ZONE 'America/Lima')::timestamp(0),  -- El (0) elimina los decimales del segundo
+        precio_actual,  
+        v_precio_nvo,   
+        id_producto
+    FROM producto
+    WHERE id_producto = v_id_producto;
 
+END $$;
 
 
