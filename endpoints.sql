@@ -48,5 +48,9 @@ END $$;
 Funcion: Cambio de precio con historial — captura el precio anterior con un SELECT dentro del INSERT a hstral_prco
 antes de aplicar el UPDATE a producto, todo en una sola transacción atómica.*/
 
+-- Sincronización preventiva del contador automático
+SELECT setval('hstral_prco_id_hstral_prco_seq', (SELECT MAX(id_hstral_prco) FROM hstral_prco));
+
+
 
 
