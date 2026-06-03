@@ -80,3 +80,15 @@ END $$;
 
 -- Sincronización preventiva del contador automático (secuencia) para evitar duplicados
 SELECT setval('dtlle_mrma_id_dtlle_mrma_seq', (SELECT MAX(id_dtlle_mrma) FROM dtlle_mrma));
+-- Bloque de ejecución transaccional
+DO $$
+DECLARE
+    v_id_merma INT := 1;          -- ID del tipo de merma (ej. 1 = Producto Vencido)
+    v_id_lote INT := 1;           -- ID del lote afectado
+    v_cantidad_merma INT := 5;    -- Cantidad de unidades a retirar por merma
+BEGIN
+
+    -- 1. Registrar el detalle de la merma (Estructura alineada al DDL de su repositorio)
+    INSERT INTO dtlle_mrma (cantidad, descripcion, id_merma, id_lote)
+    VALUES (v_cantidad_merma, 'Chocolates vencidos retirados del anaquel.', v_id_merma, v_id_lote);
+
