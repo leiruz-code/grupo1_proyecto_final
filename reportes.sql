@@ -60,5 +60,10 @@ FROM producto pr
 JOIN categoria ca            ON ca.id_ctgra = pr.id_ctgra
 LEFT JOIN ventas_consolidadas vc  ON vc.id_producto = pr.id_producto
 LEFT JOIN mermas_consolidadas mc  ON mc.id_producto = pr.id_producto
+GROUP BY
+    pr.id_producto,
+    pr.nmbre_prdcto,
+    ca.nmbre_ctgra,
+    pr.precio_actual
 
 
