@@ -43,3 +43,10 @@ BEGIN
     VALUES (0.00, 55.50, v_id_pedido, 1);
 
 END $$;
+
+/*--------------------------------------------------------------------------------------------------------------/
+Funcion: Cambio de precio con historial — captura el precio anterior con un SELECT dentro del INSERT a hstral_prco
+antes de aplicar el UPDATE a producto, todo en una sola transacción atómica.*/
+
+
+
