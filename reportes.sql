@@ -46,5 +46,19 @@ mermas_consolidadas AS (
     FROM dtlle_mrma dm
     JOIN lote l ON l.id_lote = dm.id_lote
     GROUP BY l.id_producto
-),
+)
+SELECT
+    pr.id_producto,
+    pr.nmbre_prdcto                             AS producto,
+    ca.nmbre_ctgra                              AS categoria,
+    COALESCE(SUM(vc.total_vendido), 0)           AS unidades_vendidas,
+    COALESCE(SUM(mc.total_merma), 0)             AS unidades_merma,
+    COALESCE(SUM(vc.total_vendido), 0) 
+        - COALESCE(SUM(mc.total_merma), 0)       AS unidades_netas,
+    ROUND(pr.precio_actual::NUMERIC, 2)         AS precio_actual
+FROM producto pr
+JOIN categoria ca            ON ca.id_ctgra = pr.id_ctgra
+LEFT JOIN ventas_consolidadas vc  ON vc.id_producto = pr.id_producto
+LEFT JOIN mermas_consolidadas mc  ON mc.id_producto = pr.id_producto
+
 
