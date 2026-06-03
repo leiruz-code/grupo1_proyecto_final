@@ -74,5 +74,9 @@ BEGIN
     WHERE id_producto = v_id_producto;
 
 END $$;
+--------------------------------------------------------------------------------------------------------------/
+--Merma con validación — registra en dtlle_mrma, descuenta del inventario y
+--lanza un RAISE EXCEPTION si el stock quedaría negativo, forzando el rollback automáticamente
 
-
+-- Sincronización preventiva del contador automático (secuencia) para evitar duplicados
+SELECT setval('dtlle_mrma_id_dtlle_mrma_seq', (SELECT MAX(id_dtlle_mrma) FROM dtlle_mrma));
