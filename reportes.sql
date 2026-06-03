@@ -66,4 +66,5 @@ GROUP BY
     ca.nmbre_ctgra,
     pr.precio_actual
 
-
+HAVING COALESCE(SUM(mc.total_merma), 0) > 5
+ORDER BY unidades_vendidas DESC;
