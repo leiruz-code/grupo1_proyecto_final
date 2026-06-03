@@ -91,4 +91,10 @@ BEGIN
     -- 1. Registrar el detalle de la merma (Estructura alineada al DDL de su repositorio)
     INSERT INTO dtlle_mrma (cantidad, descripcion, id_merma, id_lote)
     VALUES (v_cantidad_merma, 'Chocolates vencidos retirados del anaquel.', v_id_merma, v_id_lote);
+-- 2. Descontar del inventario las unidades del lote afectado
+    UPDATE inventario
+    SET cantidad = cantidad - v_cantidad_merma
+    WHERE id_lote = v_id_lote;
+
+
 
