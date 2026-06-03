@@ -38,4 +38,13 @@ WITH ventas_consolidadas AS (
     FROM dtlle_pddo
     GROUP BY id_producto
 ),
+mermas_consolidadas AS (
+    -- Consolidamos las mermas pasando correctamente por la tabla lote
+    SELECT 
+        l.id_producto, 
+        SUM(dm.cantidad) AS total_merma
+    FROM dtlle_mrma dm
+    JOIN lote l ON l.id_lote = dm.id_lote
+    GROUP BY l.id_producto
+),
 
