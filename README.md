@@ -2,10 +2,10 @@
 <h2>👥 INTEGRANTES DEL GRUPO:</h2>
 <table align="center" cellpadding="12">
 <tr>         
-  <td align="center" width="350">
+  <td align="center" width="390">
   Bernedo Coya Jose Daniel (JosDan412)
   </td>
-  <td align="center" width="350">
+  <td align="center" width="390">
   Cangre Ure Zuriel Alberto (leiruz-code)
   </td>
 </tr>
@@ -192,7 +192,7 @@
 </tr>
 
 <tr>
-  <td align="center">`id_producto`</td>
+  <td align="center">`id_lote`</td>
   <td align="center">`int4`</td>
   <td align="center"></td>
 </tr>
@@ -275,6 +275,12 @@
   <td align="center">`pnlzcon_ecnmca`</td>
   <td align="center">`int4`</td>
   <td align="center">Check(NULL OR >= 0)</td>
+</tr>
+
+<tr>
+  <td align="center">`fecha`</td>
+  <td align="center">`date`</td>
+  <td align="center"></td>
 </tr>
 
 </table>
@@ -433,12 +439,6 @@
   <td align="center">`id_invntro`</td>
   <td align="center">`int4`</td>
   <td align="center">Primary</td>
-</tr>
-
-<tr>
-  <td align="center">`cantidad`</td>
-  <td align="center">`int4`</td>
-  <td align="center">Check(>= 0)</td>
 </tr>
 
 <tr>
@@ -637,6 +637,12 @@
   <td align="center"></td>
 </tr>
 
+<tr>
+  <td align="center">`fecha`</td>
+  <td align="center">`date`</td>
+  <td align="center"></td>
+</tr>
+
 </table>
 
 </td>
@@ -772,6 +778,12 @@
   <td align="center">`id_jefe`</td>
   <td align="center">`int4`</td>
   <td align="center">Nullable</td>
+</tr>
+
+<tr>
+  <td align="center">`id_turno`</td>
+  <td align="center">`int4`</td>
+  <td align="center"></td>
 </tr>
 
 </table>
@@ -915,12 +927,6 @@
 
 <tr>
   <td align="center">`id_clbrdor`</td>
-  <td align="center">`int4`</td>
-  <td align="center"></td>
-</tr>
-
-<tr>
-  <td align="center">`id_turno`</td>
   <td align="center">`int4`</td>
   <td align="center"></td>
 </tr>
@@ -1141,56 +1147,6 @@
 
 <br>
 
-<!-- TABLA HSTRAL_PRCO -->
-
-<table border="3" cellpadding="10" width="500">
-
-<tr>
-  <th colspan="3" align="center">
-📋 Table: `hstral_prco`
-  </th>
-</tr>
-
-<tr>
-  <th align="center">Name</th>
-  <th align="center">Type</th>
-  <th align="center">Constraints</th>
-</tr>
-
-<tr>
-  <td align="center">`id_hstral_prco`</td>
-  <td align="center">`int4`</td>
-  <td align="center">Primary</td>
-</tr>
-
-<tr>
-  <td align="center">`fcha_cmbo`</td>
-  <td align="center">`timestamp`</td>
-  <td align="center">Default CURRENT_TIMESTAMP</td>
-</tr>
-
-<tr>
-  <td align="center">`prco_antror`</td>
-  <td align="center">`numeric`</td>
-  <td align="center">Check(>= 0)</td>
-</tr>
-
-<tr>
-  <td align="center">`prco_nvo`</td>
-  <td align="center">`numeric`</td>
-  <td align="center">Check(>= 0)</td>
-</tr>
-
-<tr>
-  <td align="center">`id_producto`</td>
-  <td align="center">`int4`</td>
-  <td align="center"></td>
-</tr>
-
-</table>
-
-<br>
-
 <!-- TABLA PROVEEDOR -->
 
 <table border="3" cellpadding="10" width="500">
@@ -1234,6 +1190,56 @@
 <tr>
   <td align="center">`direccion`</td>
   <td align="center">`varchar`</td>
+  <td align="center"></td>
+</tr>
+
+</table>
+
+<br>
+
+<!-- TABLA HSTRAL_PRCO -->
+
+<table border="3" cellpadding="10" width="500">
+
+<tr>
+  <th colspan="3" align="center">
+📋 Table: `hstral_prco`
+  </th>
+</tr>
+
+<tr>
+  <th align="center">Name</th>
+  <th align="center">Type</th>
+  <th align="center">Constraints</th>
+</tr>
+
+<tr>
+  <td align="center">`id_hstral_prco`</td>
+  <td align="center">`int4`</td>
+  <td align="center">Primary</td>
+</tr>
+
+<tr>
+  <td align="center">`fcha_cmbo`</td>
+  <td align="center">`timestamp`</td>
+  <td align="center">Default CURRENT_TIMESTAMP</td>
+</tr>
+
+<tr>
+  <td align="center">`prco_antror`</td>
+  <td align="center">`numeric`</td>
+  <td align="center">Check(>= 0)</td>
+</tr>
+
+<tr>
+  <td align="center">`prco_nvo`</td>
+  <td align="center">`numeric`</td>
+  <td align="center">Check(>= 0)</td>
+</tr>
+
+<tr>
+  <td align="center">`id_producto`</td>
+  <td align="center">`int4`</td>
   <td align="center"></td>
 </tr>
 
