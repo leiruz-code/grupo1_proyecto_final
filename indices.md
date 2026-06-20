@@ -350,3 +350,128 @@ Selectividad = $\frac{1}{58} = 0.0172413$
     </tr>
   </tbody>
 </table>
+
+<br><br>
+
+<h1>🧾Transacciones</h1>
+
+<p>
+     Esta transaccion sirve para registrar una venta completa en nuestra base de datos, asegurando
+     que todo el procesor de la venta se ejecute.
+     Si ocurre algún error como por ejemplo "falta de stock" toda la operación se cancela y no se
+     guarde nada y asi evitamos inconsistencias.
+</p>
+
+<p>
+     <strong>¿Que hace la transacción?</strong>     
+</p>
+
+- Crea el pedido.
+- Registra los productos vendidos.
+- Verifica que exista stock suficiente.
+- Descuenta las unidades del inventario (del lote).
+- Actualiza el número de compras del cliente.
+- Registra el pago.
+
+<br>
+
+<p>
+     <strong>Transacción completa:</strong>
+</p>
+
+```sql {1-94}
+BEGIN;
+
+-- Registrar el pedido principal
+
+INSERT INTO pedido (
+    precio_total,
+    dscnto_ttal,
+    fecha,
+    id_cliente,
+    id_clbrdor
+)
+VALUES (
+    50.00,
+    0.00,
+    NOW(),
+    1,
+    2
+);
+
+-- Obtener el ID generado para el pedido
+
+DO $$
+DECLARE
+    v_id_pedido INT;
+    v_stock_actual INT;
+BEGIN
+
+    SELECT MAX(id_pedido)
+    INTO v_id_pedido
+    FROM pedido;
+
+    -- Registrar el detalle del pedido
+
+    INSERT INTO dtlle_pddo (
+        id_pedido,
+        id_lote,
+        unidades,
+        precio_unidad,
+        precio_final
+    )
+    VALUES (
+        v_id_pedido,
+        1,
+        2,
+        25.00,
+        50.00
+    );
+
+    -- Verificar stock disponible
+
+    SELECT cantidad
+    INTO v_stock_actual
+    FROM lote
+    WHERE id_lote = 1;
+
+    IF v_stock_actual < 2 THEN
+
+        RAISE EXCEPTION
+        'Stock insuficiente. Disponible: %, solicitado: %',
+        v_stock_actual,
+        2;
+
+    END IF;
+
+    -- Actualizar inventario
+
+    UPDATE lote
+    SET cantidad = cantidad - 2
+    WHERE id_lote = 1;
+
+    -- Actualizar contador de pedidos del cliente
+
+    UPDATE cliente
+    SET nmro_pddos = nmro_pddos + 1
+    WHERE id_cliente = 1;
+
+    -- Registrar el pago
+
+    INSERT INTO prcso_pgo (
+        comision,
+        ingrso_nto,
+        id_pedido,
+        id_mtdo_pgo
+    )
+    VALUES (
+        0,
+        50,
+        v_id_pedido,
+        1
+    );
+
+END $$;
+
+COMMIT;
+```
