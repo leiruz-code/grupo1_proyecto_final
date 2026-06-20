@@ -115,6 +115,8 @@ WHERE id_producto = 10;
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Tiempo Real:</strong> 0.015 ms
 </p>
 
+![seqscanindice1](images/seqscanindice1.png)
+
 <br>
 
 <p>
@@ -137,6 +139,8 @@ ON lote(id_producto);
      <br>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Tiempo Real</strong> 0.092 ms
 </p>
+
+![bitmapscanindice1](images/bitmapscanindice1.png)
 
 <br>
 
@@ -191,7 +195,7 @@ Selectividad = $\frac{1}{72} = 0.0138889$
 
 ```javascript {1-21}
 const { data, error } = await supabaseClient 
-  .from("cliente") 
+  .from("colaborador") 
   .select(` 
     dni, 
     nombres, 
@@ -223,9 +227,9 @@ SELECT
     c.nombres, 
     c.aplldo_ptrno, 
     COUNT(p.id_pedido) AS total_pedidos 
-FROM cliente c 
+FROM colaborador c 
 LEFT JOIN pedido p 
-    ON p.id_cliente = c.id_cliente 
+    ON p.id_clbrdor = c.id_clbrdor
 WHERE c.dni = '12345678' 
 GROUP BY 
     c.dni, 
@@ -264,6 +268,8 @@ GROUP BY
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Tiempo Real</strong> 0.255 ms
 </p>
 
+![seqscanindice2](images/seqscanindice2.png)
+
 <br>
 
 <p>
@@ -272,7 +278,7 @@ GROUP BY
 
 ```sql {1-2}
 CREATE INDEX idx_pedido_id_colaborador 
-ON pedido(id_cliente);
+ON pedido(id_clbrdor);
 ```
 
 <br>
@@ -284,6 +290,8 @@ ON pedido(id_cliente);
      <br>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Tiempo Real</strong> 0.116 ms
 </p>
+
+![bitmapscanindice2](images/bitmapscanindice2.png)
 
 <br> 
 
@@ -353,7 +361,7 @@ Selectividad = $\frac{1}{58} = 0.0172413$
 
 <br><br>
 
-<h1>🧾Transacciones</h1>
+<h1>🧾 Transacciones</h1>
 
 <p>
      Esta transaccion sirve para registrar una venta completa en nuestra base de datos, asegurando
@@ -363,7 +371,7 @@ Selectividad = $\frac{1}{58} = 0.0172413$
 </p>
 
 <p>
-     <strong>¿Que hace la transacción?</strong>     
+     <strong>¿Que hace esta transacción?</strong>     
 </p>
 
 - Crea el pedido.
@@ -372,6 +380,29 @@ Selectividad = $\frac{1}{58} = 0.0172413$
 - Descuenta las unidades del inventario (del lote).
 - Actualiza el número de compras del cliente.
 - Registra el pago.
+
+<br>
+
+<p>
+     <strong>Proceso Crítico e Importancia de ACID:</strong>     
+</p>
+
+<p>
+     Esta transacción de venta representa el proceso crítico en nuestra base de datos, porque relaciona muchos subprocesos
+     muy importante: verificación de inventario, registro de pedido, actualización de stock, contador de compras del cliente
+     y registro de pago. Este flujo es especialmente sensible porque involucra recursos físicos (productos en almacen) y 
+     financieros (pagos), donde cualquier falla parcial podría generar pérdidas económicas, inventarios inconsistentes 
+     o clientes insatisfechos. La importancia de ACID radica en que proporciona un marco de garantías innegociables: la 
+     <strong>Atomicidad</strong> asegura que si falla la verificación de stock, no quede un pedido huérfano ni un descuento 
+     de inventario sin pago registrado; la <strong>Consistencia</strong> mantiene las reglas de negocio como que nunca se 
+     venda más de lo disponible; el <strong>Aislamiento</strong> permite que múltiples vendedores operen simultáneamente sin 
+     pisar las actualizaciones del otro, evitando sobreventas en tiempo real; y la <strong>Durabilidad</strong> garantiza que 
+     una vez confirmada la venta con COMMIT, ni un corte de energía ni un reinicio del servidor puedan perder ese registro.
+     Sin ACID, el sistema quedaría expuesto a inconsistencias críticas como ventas registradas sin stock descontado, pagos 
+     procesados sin pedidos asociados, dobles ventas del mismo producto por condiciones de carrera, convirtiendo una simple 
+     operación de venta en un riesgo operacional y financiero significativo para la tienda.
+
+</p>
 
 <br>
 
@@ -475,3 +506,34 @@ END $$;
 
 COMMIT;
 ```
+
+<br>
+
+<p>
+     <strong>Ventajas de la transaccion (ACID):</strong>
+</p>
+
+<p>
+     <strong>A - Atomicidad:</strong> Se aplica el TODO O NADA, con lo que garanizamos que todo el
+     conjunto de operaciones se ejecuten como una unidad, donde si falla algo TODO SE DESHACE.
+</p>
+
+<p>
+     <strong>C - Consistencia:</strong> Ayuda a mantener las reglas de la tienda (evitar datos/prodecimientos
+     absurdos), esto asegura que:
+</p>
+
+- Nunca se venda más stock del disponible (verificación previa).
+- El inventario siempre refleje las ventas reales.
+- El contador de pedidos del cliente se actualiza correctamente.
+
+<p>
+     <strong>I - Aislamiento:</strong> Garantiza que cada transacción de venta se ejecute como si fuera la 
+     única operación en el sistema, incluso cuando múltiples procesos o colaboradores que realizan ventas
+     simultáneamente.
+</p>
+
+<p>
+     <strong>D - Durabilidad:</strong> Asegura que una vez que la transacción se confirma con COMMIT, los
+     cambios permanecen permanentemente en la base de datos.
+</p>
