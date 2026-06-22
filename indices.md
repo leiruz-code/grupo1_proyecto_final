@@ -98,6 +98,8 @@ JOIN producto p
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Tiempo Real</strong> 0.192 ms
 </p>
 
+![seqscanindice1](images/seqscanindice1.png)
+
 <br>
 
 ```sql {1-4}
@@ -114,8 +116,6 @@ WHERE id_producto = 10;
      <br>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Tiempo Real:</strong> 0.015 ms
 </p>
-
-![seqscanindice1](images/seqscanindice1.png)
 
 <br>
 
