@@ -253,7 +253,61 @@ BEGIN
 
 END $$;
 ```
+<h2>CRUD 5:</h2>
 
+<p>
+    Intenta registrar dos clientes distintos con el mismo DNI (12345678). El primer INSERT se ejecuta correctamente, pero el segundo es rechazado automáticamente por el constraint UNIQUE de la columna dni, demostrando que el sistema impide la duplicidad de documentos de identidad en la tabla cliente.
+</p>
+
+```sql 
+-------- Falla: violación de UNIQUE en cliente --------
+DO $$
+BEGIN
+    -- Primero insertamos un cliente con DNI 12345678
+    INSERT INTO cliente (
+        dni,
+        nombres,
+        aplldo_ptrno,
+        aplldo_mtrno,
+        crro_elctrnco,
+        telefono,
+        fcha_rgstro,
+        nmro_pddos
+    )
+    VALUES (
+        '12345678',
+        'Juan',
+        'Pérez',
+        'López',
+        'juan@correo.com',
+        '987654321',
+        NOW(),
+        0
+    );
+
+    -- Intentamos insertar OTRO cliente con el mismo DNI → ERROR
+    INSERT INTO cliente (
+        dni,
+        nombres,
+        aplldo_ptrno,
+        aplldo_mtrno,
+        crro_elctrnco,
+        telefono,
+        fcha_rgstro,
+        nmro_pddos
+    )
+    VALUES (
+        '12345678',    -- ❌ DNI duplicado → viola UNIQUE
+        'Carlos',
+        'Gómez',
+        'Torres',
+        'carlos@correo.com',
+        '912345678',
+        NOW(),
+        0
+    );
+END $$;
+```
 
 <h1>📂 Reportes y Exportación</h1>
 
