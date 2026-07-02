@@ -338,6 +338,39 @@ BEGIN
 
     RAISE NOTICE 'Merma registrada: % unidades del lote %.', v_cantidad, v_id_lote;
 END $$;
+```
+<h2>Prueba de restricción CHECK:</h2>
+
+<p>
+Este bloque intenta registrar un nuevo lote de productos en la tabla lote. Sin embargo, fue diseñado para demostrar el funcionamiento de una restricción CHECK, la cual valida que el precio de venta sea mayor o igual al precio de compra.
+</p>
+
+```sql
+-------- Falla: violación de CHECK en lote --------
+DO $$
+BEGIN
+    INSERT INTO lote (
+        cantidad,
+        precio_compra,
+        precio_venta,    -- ❌ menor que precio_compra → viola el CHECK
+        fcha_vncmnto,
+        fcha_ingrso,
+        id_proveedor,
+        id_producto,
+        id_presentacion
+    )
+    VALUES (
+        50,
+        100.00,
+        80.00,           -- precio_venta < precio_compra → ERROR
+        DATE '2029-01-01',
+        DATE '2026-06-20',
+        1,
+        1,
+        1
+    );
+END $$;
+```
 
 <h1>📂 Reportes y Exportación</h1>
 
