@@ -177,7 +177,82 @@ BEGIN
 
 END $$;
 ```
+<h2>CRUD 4:</h2>
 
+<p>
+      Eliminación de un pedido completo identificado por su ID, verificando primero 
+    que el pedido exista en el sistema (lanzando un error si no se encuentra). 
+    Restaura el stock de cada lote involucrado en el pedido, decrementa el contador 
+    de pedidos del cliente y elimina los registros asociados en orden correcto 
+    respetando las llaves foráneas: primero el proceso de pago, luego el detalle 
+    del pedido y finalmente el pedido principal.
+</p>
+
+```sql 
+ --------          Ejemplo 4          -------- 
+-------- Ejemplo: Eliminación de un pedido --------
+DO $$
+DECLARE
+    -- ID del pedido a eliminar
+    v_id_pedido INT := 1;
+
+    -- Para verificar que el pedido existe
+    v_existe     BOOLEAN;
+
+    -- Para recorrer los lotes y sus unidades del pedido
+    v_id_lote    INT;
+    v_unidades   INT;
+    v_id_cliente INT;
+
+BEGIN
+    -- Verificar que el pedido existe antes de proceder
+    SELECT EXISTS (
+        SELECT 1 FROM pedido WHERE id_pedido = v_id_pedido
+    ) INTO v_existe;
+
+    IF NOT v_existe THEN
+        RAISE EXCEPTION 'El pedido % no existe.', v_id_pedido;
+    END IF;
+
+    -- Obtener el cliente del pedido (para actualizar su contador)
+    SELECT id_cliente
+    INTO v_id_cliente
+    FROM pedido
+    WHERE id_pedido = v_id_pedido;
+
+    -- Restaurar el stock de cada lote involucrado en el pedido
+    FOR v_id_lote, v_unidades IN
+        SELECT id_lote, unidades
+        FROM dtlle_pddo
+        WHERE id_pedido = v_id_pedido
+    LOOP
+        UPDATE lote
+        SET cantidad = cantidad + v_unidades
+        WHERE id_lote = v_id_lote;
+    END LOOP;
+
+    -- Decrementar el contador de pedidos del cliente
+    UPDATE cliente
+    SET nmro_pddos = nmro_pddos - 1
+    WHERE id_cliente = v_id_cliente
+      AND nmro_pddos > 0;
+
+    -- Eliminar el proceso de pago asociado
+    DELETE FROM prcso_pgo
+    WHERE id_pedido = v_id_pedido;
+
+    -- Eliminar el detalle del pedido
+    DELETE FROM dtlle_pddo
+    WHERE id_pedido = v_id_pedido;
+
+    -- Eliminar el pedido principal
+    DELETE FROM pedido
+    WHERE id_pedido = v_id_pedido;
+
+    RAISE NOTICE 'Pedido % eliminado correctamente.', v_id_pedido;
+
+END $$;
+```
 
 
 <h1>📂 Reportes y Exportación</h1>
