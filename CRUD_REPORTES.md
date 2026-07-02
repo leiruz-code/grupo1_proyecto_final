@@ -253,7 +253,7 @@ BEGIN
 
 END $$;
 ```
-<h2>CRUD 5:</h2>
+<h2>OPERACION 5: Prueba de Restriccion UNIQUE</h2>
 
 <p>
     Intenta registrar dos clientes distintos con el mismo DNI (12345678). El primer INSERT se ejecuta correctamente, pero el segundo es rechazado automáticamente por el constraint UNIQUE de la columna dni, demostrando que el sistema impide la duplicidad de documentos de identidad en la tabla cliente.
