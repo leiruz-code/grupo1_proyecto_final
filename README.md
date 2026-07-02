@@ -1739,28 +1739,121 @@ completas.
 <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🛠️ Diseño NoSQL:</h3>
 
 ```json {1-22}
-{ 
-  "_id": "ObjectId", 
-  "id_cliente": 5, 
-  "eventos": [ 
-    { 
-      "tipo": "compra", 
-      "id_pedido": 101, 
-      "fecha": "2026-06-07T10:15:00Z" 
-    }, 
-    { 
-      "tipo": "cancelacion", 
-      "id_pedido": 101, 
-      "fecha": "2026-06-01" 
-    }, 
- 
-    { 
-      "tipo": "compra", 
-      "id_pedido": 206, 
-      "fecha": "2026-06-01" 
-    } 
-  ] 
-} 
+[
+  {
+    "_id": "6a442f3e08f328ea9ba71113",
+    "id_cliente": 28,
+    "eventos": [
+      {
+        "tipo": "compra",
+        "id_pedido": 62,
+        "fecha": "2026-06-30T21:03:57.189Z"
+      },
+      {
+        "tipo": "pago",
+        "id_pedido": 62,
+        "cuotas": [
+          {
+            "numero": 1,
+            "monto": 1.5
+          },
+          {
+            "numero": 2,
+            "monto": 1.5
+          },
+          {
+            "numero": 3,
+            "monto": 1.5
+          }
+        ],
+        "fecha": "2026-06-30T21:03:57.189Z"
+      },
+      {
+        "tipo": "pago",
+        "id_pedido": 62,
+        "cuotas": [
+          {
+            "numero": 4,
+            "monto": 1.5
+          },
+          {
+            "numero": 5,
+            "monto": 1.5
+          }
+        ],
+        "fecha": "2026-06-30T23:17:41.145Z"
+      },
+      {
+        "tipo": "pago",
+        "id_pedido": 62,
+        "cuotas": [
+          {
+            "numero": 6,
+            "monto": 1.5
+          },
+          {
+            "numero": 7,
+            "monto": 1.5
+          },
+          {
+            "numero": 8,
+            "monto": 1.5
+          }
+        ],
+        "fecha": "2026-06-30T23:22:08.507Z"
+      },
+      {
+        "tipo": "pago",
+        "id_pedido": 62,
+        "cuotas": [
+          {
+            "numero": 9,
+            "monto": 1.5
+          },
+          {
+            "numero": 10,
+            "monto": 1.5
+          },
+          {
+            "numero": 11,
+            "monto": 1.5
+          }
+        ],
+        "fecha": "2026-06-30T23:30:11.825Z"
+      }
+    ]
+  },
+  {
+    "_id": "6a45d9975362aad673682f2d",
+    "id_cliente": 28,
+    "eventos": [
+      {
+        "tipo": "compra",
+        "id_pedido": 84,
+        "fecha": "2026-07-02T03:23:03.224Z"
+      },
+      {
+        "tipo": "pago",
+        "id_pedido": 84,
+        "cuotas": [
+          {
+            "numero": 1,
+            "monto": 2.5
+          },
+          {
+            "numero": 2,
+            "monto": 2.5
+          },
+          {
+            "numero": 3,
+            "monto": 2.5
+          }
+        ],
+        "fecha": "2026-07-02T03:23:03.224Z"
+      }
+    ]
+  }
+]
 ```
 
 <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔍 SELECT que filtra datos:</h3>
@@ -1898,15 +1991,53 @@ significativamente el costo de las operaciones de lectura y simplifica la lógic
 <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🛠️ Diseño NoSQL:</h3>
 
 ```json {1-9}
-{ 
-  "_id": "ObjectId", 
-  "tabla": "pedido" 
-  "evento": "UPDATE", 
-  "fecha": "2026-06-07T10:15:00Z", 
-  "detalle": { 
-    "id_pedido": 101 
-  } 
-} 
+[
+  {
+    "_id": "6a453399bcc82f0592c8f1b8",
+    "tabla": {
+      "tabla": "proveedor",
+      "evento": "UPDATE",
+      "detalle": {
+        "id_proveedor": 3,
+        "antes": {
+          "nmbre_prvdor": "Abarrotes del Sur",
+          "crro_elctrnco": "info@abarrotessur.com",
+          "telefono": "934567812",
+          "direccion": "Calle Comercio 789"
+        },
+        "despues": {
+          "telefono": "934567712"
+        }
+      }
+    },
+    "evento": null,
+    "fecha": "2026-07-01T15:34:49.412Z",
+    "detalle": {}
+  },
+  {
+    "_id": "6a45c9a3038ecce73cc202d5",
+    "tabla": {
+      "tabla": "cliente",
+      "evento": "UPDATE",
+      "detalle": {
+        "id_cliente": 1,
+        "antes": {
+          "nombres": "Juan Fernando",
+          "crro_elctrnco": "juan_quispe@hotmail.com",
+          "telefono": "951753655"
+        },
+        "despues": {
+          "nombres": "Juan Pedro",
+          "crro_elctrnco": "juan_quispe@gmail.com",
+          "telefono": "951755689"
+        }
+      }
+    },
+    "evento": null,
+    "fecha": "2026-07-02T02:14:59.586Z",
+    "detalle": {}
+  }
+]
 ```
 
 <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔍 SELECT que filtra datos:</h3>
