@@ -308,6 +308,36 @@ BEGIN
     );
 END $$;
 ```
+<h2>CRUD 6:</h2>
+
+<p>
+Este bloque DO $$ implementa un procedimiento que registra una merma de productos en la base de datos. Primero inserta el tipo de merma y obtiene su identificador, luego registra el detalle de la merma indicando la cantidad, el lote afectado y la fecha. Finalmente, actualiza el inventario descontando la cantidad perdida del lote correspondiente y muestra un mensaje de confirmación, garantizando que el stock permanezca actualizado y consistente.
+</p>
+
+```sql
+DO $$
+DECLARE
+    v_id_lote    INT := 1;
+    v_cantidad   INT := 5;
+    v_descripcion VARCHAR := 'Producto vencido';
+    v_id_merma   INT;
+BEGIN
+    -- Registrar el tipo de merma
+    INSERT INTO merma (nmbre_mrma, descripcion)
+    VALUES ('Vencimiento', v_descripcion)
+    RETURNING id_merma INTO v_id_merma;
+
+    -- Registrar el detalle de la merma
+    INSERT INTO dtlle_mrma (cantidad, descripcion, id_merma, id_lote, fecha)
+    VALUES (v_cantidad, v_descripcion, v_id_merma, v_id_lote, NOW());
+
+    -- Descontar el stock del lote
+    UPDATE lote
+    SET cantidad = cantidad - v_cantidad
+    WHERE id_lote = v_id_lote;
+
+    RAISE NOTICE 'Merma registrada: % unidades del lote %.', v_cantidad, v_id_lote;
+END $$;
 
 <h1>📂 Reportes y Exportación</h1>
 
