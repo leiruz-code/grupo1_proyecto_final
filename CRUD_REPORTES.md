@@ -143,74 +143,42 @@ END $$;
 <h2>CRUD 3:</h2>
 
 <p>
-     texto. 
+     Edición de los datos del colaborador 34, actualizando su sueldo a 2200.00, su bono a 150.00 y su turno al turno 2, verificando previamente que el           colaborador exista en el sistema y lanzando un error en caso contrario.
 </p>
 
-```sql {1-42}
- --------          Ejemplo 2          -------- 
--------- Ejemplo: Eliminación de un pedido --------
+```sql 
+-------- Ejemplo: Edición de colaborador --------
 DO $$
 DECLARE
-    -- ID del pedido a eliminar
-    v_id_pedido INT := 1;
-
-    -- Para verificar que el pedido existe
-    v_existe     BOOLEAN;
-
-    -- Para recorrer los lotes y sus unidades del pedido
-    v_id_lote    INT;
-    v_unidades   INT;
-    v_id_cliente INT;
-
+    v_id_clbrdor  INT     := 34;     -- Colaborador a editar
+    v_nuevo_sueldo NUMERIC := 2200.00;
+    v_nuevo_bono   NUMERIC := 150.00;
+    v_nuevo_turno  INT     := 2;
+    v_existe       BOOLEAN;
 BEGIN
-    -- Verificar que el pedido existe antes de proceder
+    -- Verificar que el colaborador existe
     SELECT EXISTS (
-        SELECT 1 FROM pedido WHERE id_pedido = v_id_pedido
+        SELECT 1 FROM colaborador WHERE id_clbrdor = v_id_clbrdor
     ) INTO v_existe;
 
     IF NOT v_existe THEN
-        RAISE EXCEPTION 'El pedido % no existe.', v_id_pedido;
+        RAISE EXCEPTION 'El colaborador % no existe.', v_id_clbrdor;
     END IF;
 
-    -- Obtener el cliente del pedido (para actualizar su contador)
-    SELECT id_cliente
-    INTO v_id_cliente
-    FROM pedido
-    WHERE id_pedido = v_id_pedido;
+    -- Actualizar datos del colaborador
+    UPDATE colaborador
+    SET
+        sueldo   = v_nuevo_sueldo,
+        bono     = v_nuevo_bono,
+        id_turno = v_nuevo_turno
+    WHERE id_clbrdor = v_id_clbrdor;
 
-    -- Restaurar el stock de cada lote involucrado en el pedido
-    FOR v_id_lote, v_unidades IN
-        SELECT id_lote, unidades
-        FROM dtlle_pddo
-        WHERE id_pedido = v_id_pedido
-    LOOP
-        UPDATE lote
-        SET cantidad = cantidad + v_unidades
-        WHERE id_lote = v_id_lote;
-    END LOOP;
-
-    -- Decrementar el contador de pedidos del cliente
-    UPDATE cliente
-    SET nmro_pddos = nmro_pddos - 1
-    WHERE id_cliente = v_id_cliente
-      AND nmro_pddos > 0;
-
-    -- Eliminar el proceso de pago asociado
-    DELETE FROM prcso_pgo
-    WHERE id_pedido = v_id_pedido;
-
-    -- Eliminar el detalle del pedido
-    DELETE FROM dtlle_pddo
-    WHERE id_pedido = v_id_pedido;
-
-    -- Eliminar el pedido principal
-    DELETE FROM pedido
-    WHERE id_pedido = v_id_pedido;
-
-    RAISE NOTICE 'Pedido % eliminado correctamente.', v_id_pedido;
+    RAISE NOTICE 'Colaborador % actualizado correctamente.', v_id_clbrdor;
 
 END $$;
 ```
+
+
 
 <h1>📂 Reportes y Exportación</h1>
 
